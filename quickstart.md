@@ -17,3 +17,20 @@ tagline:
 
 
 
+### Install IntelliJ IDEA
+
+[IntelliJ IDEA](http://www.jetbrains.com/idea/) Community Edition をダウンロード
+
+* File -> Settings -> Plugins -> Scala にチェックを入れる
+
+
+### Create IntelliJ project files
+
+	$ make idea
+	
+File -> Open Project で、scala-cookbookのフォルダを選択
+
+
+
+
+
