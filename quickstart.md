@@ -10,14 +10,17 @@ tagline: Run the first scala code
 	$ cd scala-cookbook 
 	# lesson0 branchのコードを取り出す
 	$ git checkout lesson0
-	# scalaコードの実行に必要なライブラリをダウンロードし、インストール
+	# scalaコードの実行に必要なライブラリをダウンロードし、
+	# target/distにプログラム全体を作成後、$HOME/local以下にインストール
     $ make install
 	# scalaコードを実行するスクリプトを起動
 	$ ~/local/bin/scala-cookbook
     Hello Scala Cookbook!
 
+Java 1.6以上が必要。Macでgitをインストールするには、[Mac Ports](http://www.macports.org/)をインストール後、```sudu port install git-core```とする。Windowsで頑張る場合は、[cygwin](http://www.cygwin.com) をインストール（インストール時に、GNU Make, git, sshなどを同時にインストールすること）。コンソールはminttyが良い。
 
-### Install IntelliJ IDEA
+
+### IntelliJ IDEAをインストールする
 
 [IntelliJ IDEA](http://www.jetbrains.com/idea/) Community Edition をダウンロード。2012年6月の時点で最強のScala開発環境。
 
@@ -28,13 +31,13 @@ tagline: Run the first scala code
 Eclipseを使いたい場合は、[Scala IDE for Eclipse](http://scala-ide.org/)をインストールすると良い。
 
 
-### Create IntelliJ project files
+### IntelliJ のプロジェクトファイルを作成
 
 	$ make idea
 	
 File -> Open Project で、scala-cookbookのフォルダを選択
 
-### scala-cookbookの中身
+#### scala-cookbookの中身
 ```src/main/scala/ScalaCookbook.scala```
 
 	object ScalaCookbook {
@@ -50,7 +53,7 @@ main関数の中身を書き換えて、make installを実行すると再コン�
 	$ ~/local/bin/scala-cookbook
 
 
-### テストコードの作成
+### ScalaTestでテストコードを作成する
 
 毎回、make installを実行するのは手間なので、テストコードを作成し、そこからプログラムの挙動を確認する。
 
@@ -78,7 +81,7 @@ Testing libraryではScalaTestを選択する。
       }
     }
 
-#### テストコードの実行
+### テストコードを実行する
 
 テストしたいコードの上で右クリック -> Run ... を選択
 ![runtest](capture/lesson0/runtest.png)
@@ -87,7 +90,7 @@ Testing libraryではScalaTestを選択する。
 
 
 
-### テストコードを実行しながら開発
+### テストコードを実行しながら開発する
 
 ソースコードを更新 -> コンパイル -> テストコードを実行　というサイクルを繰り返すときに便利。
 

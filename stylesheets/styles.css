@@ -97,10 +97,26 @@ blockquote {
   font-style:italic;
 }
 
+code {
+  color: #D55;
+}
+
+td code {
+ white-space: nowrap;
+}
 
 code, pre {
   font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
   font-size:12px;
+}
+
+
+.label.success {
+  background-color: #45A546;
+}
+
+.label.important {
+  background-color: #C43C35;
 }
 
 
