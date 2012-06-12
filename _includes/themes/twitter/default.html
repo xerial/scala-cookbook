@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }} | Silk Weaver</title>
+    <title>{{ page.title }} | Scala Cookbook </title>
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -65,6 +65,21 @@
 	      <li><a><i class="icon-user icon-white"></i> About</a></li> 
             </ul>
 	  </div>
+	  <div id="cse" style="navbar-search pull-right">Loading</div>
+<!--
+	  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+	  <script type="text/javascript"> 
+  google.load('search', '1', {language : 'ja', style : google.loader.themes.MINIMALIST});
+  google.setOnLoadCallback(function() {
+    var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
+      '015745675153755085035:rkmkb3ezrk0', customSearchOptions);
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.draw('cse');
+  }, true);
+	  </script>
+              <form class="navbar-search pull-right">
+		  <input type="text" class="search-query" placeholder="Search">
+	      </form>-->
         </div>
       </div>
     </div>

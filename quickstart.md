@@ -1,12 +1,9 @@
 ---
-layout: default
-title: Scala Quick Start
-tagline: 
+layout: page
+title: Lesson 0 - Scala Quick Start
+tagline: Run the first scala code
 ---
 {% include JB/setup %}
-
-## Lesson 0: Scala Quick Start
-
 
     # サンプルコードの取得
 	$ git clone git://github.com/xerial/scala-cookbook.git 
@@ -85,4 +82,26 @@ Testing libraryではScalaTestを選択する。
 
 テストしたいコードの上で右クリック -> Run ... を選択
 ![runtest](capture/lesson0/runtest.png)
+
+![testresult](capture/lesson0/testresult.png)
+
+
+
+### テストコードを実行しながら開発
+
+ソースコードを更新 -> コンパイル -> テストコードを実行　というサイクルを繰り返すときに便利。
+
+	# wildcardを用い、特定のテストのみを実行する(test-only)。~は繰り返して実行するときに付ける
+    $ bin/sbt "~test-only *ScalaCookbookTest"  
+    Using C:\Users\leo\.sbt\0.11.3 as sbt dir, -sbt-dir to override.
+    [info] Loading project definition from C:\Users\leo\work\git\scala-cookbook\project
+    [info] Set current project to scala-cookbook (in build file:/C:/Users/leo/work/git/scala-cookbook/)
+    [info] Compiling 1 Scala source to C:\Users\leo\work\git\scala-cookbook\target\classes...
+    [info] Compiling 1 Scala source to C:\Users\leo\work\git\scala-cookbook\target\test-classes...
+    Hello Scala Cookbook!
+    [info] ScalaCookbookTest:
+    [info] - run cookbook
+    [info] Passed: : Total 1, Failed 0, Errors 0, Passed 1, Skipped 0
+    [success] Total time: 6 s, completed 2012/06/12 11:28:19
+    1. Waiting for source changes... (press enter to interrupt)
 
