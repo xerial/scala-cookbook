@@ -92,6 +92,10 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
    * データベースの更新
    * テキスト検索
 
+* **Lesson** 分散処理
+   * Akkaのremote actorを使った分散処理
+   * objectのserialization/deserialization
+
 * [Scalaの文法](cheetsheet.html)
 
 * IntelliJのカスタマイズ
