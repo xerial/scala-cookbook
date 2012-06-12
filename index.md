@@ -30,6 +30,7 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
    * 特定の要素を見つける (find, exists)
    * 要素を並び替える (sort)
    * マルチコアでコレクションを並列処理する (parallel collection, par)
+   * parallel collectionを用いたMapReduce
 
 * **Lesson** : 制御構造
    * pattern matching
@@ -68,6 +69,9 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
    * BEDファイルから遺伝子データの読み込み
    * WIGファイルでエピゲノム情報の管理
    * SAM/BAMファイルの読み書き
+   * DPによるアラインメント (SmithWaterman(-Gotoh), Banded-alignment, Myer)
+   * suffix arrayの構築 (induced sorting, parallel dc3)
+   
 * **Lesson** アルゴリズムとデータ構造
    * グラフ(連結リスト)とその探索
    * Union Findで同値類をまとめる
