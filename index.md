@@ -82,6 +82,7 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
    * ヒストグラム
    * line chart
    * box chart
+   * Rscriptを呼び出し、グラフの作成
 
 * **Lesson** グラフィックス
    * 画像の作成
