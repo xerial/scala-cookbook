@@ -65,22 +65,12 @@
 	      <li><a><i class="icon-user icon-white"></i> About</a></li> 
             </ul>
 	  </div>
-	  <div id="cse" style="navbar-search pull-right">Loading</div>
-<!--
-	  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-	  <script type="text/javascript"> 
-  google.load('search', '1', {language : 'ja', style : google.loader.themes.MINIMALIST});
-  google.setOnLoadCallback(function() {
-    var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
-      '015745675153755085035:rkmkb3ezrk0', customSearchOptions);
-    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-    customSearchControl.draw('cse');
-  }, true);
-	  </script>
-              <form class="navbar-search pull-right">
-		  <input type="text" class="search-query" placeholder="Search">
-	      </form>-->
+
+          <form method="get" action="{{ BASE_PATH }}/search.html" class="navbar-search pull-left">
+	    <input type="text" class="search-query" placeholder="Search" name="q" id="q">
+	  </form>
         </div>
+
       </div>
     </div>
 
