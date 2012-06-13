@@ -12,7 +12,7 @@ Gitの設定
 
 	$ git config --global core.eol lf 
 	# Windowsで改行文字がCRLFに変換されるのを防ぐ
-	$ git config core.autocrlf false
+	$ git config --global core.autocrlf false
 
 サンプルコードの取得
 
@@ -34,7 +34,7 @@ Gitの設定
 
 ### IntelliJ IDEAをインストールする
 
-[IntelliJ IDEA](http://www.jetbrains.com/idea/) Community Edition をダウンロード。2012年6月の時点で最強のScala開発環境。
+[IntelliJ IDEA](http://www.jetbrains.com/idea/) Community Edition をダウンロード。2012年6月の時点で最強のScala開発環境。ただし、Scalaで開発を始めるにはプラグインのインストールが必要。
 
 * ```File``` -> ```Settings``` -> ```Plugins``` -> ```Scala``` にチェックを入れる
 
@@ -126,4 +126,5 @@ Testing libraryではScalaTestを選択する。
     [info] Passed: : Total 1, Failed 0, Errors 0, Passed 1, Skipped 0
     [success] Total time: 6 s, completed 2012/06/12 11:28:19
     1. Waiting for source changes... (press enter to interrupt)
+
 
