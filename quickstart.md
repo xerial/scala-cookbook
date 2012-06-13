@@ -5,6 +5,13 @@ tagline: Run the first scala code
 ---
 {% include JB/setup %}
 
+Gitの設定
+
+	$ git config --global core.eol lf 
+	# Windowsで改行文字がCRLFに変換されるのを防ぐ
+	$ git config core.autocrlf false
+
+
     # サンプルコードの取得
 	$ git clone git://github.com/xerial/scala-cookbook.git 
 	$ cd scala-cookbook 
@@ -30,6 +37,8 @@ Java 1.6以上が必要。Macでgitをインストールするには、[Mac Port
 
 Eclipseを使いたい場合は、[Scala IDE for Eclipse](http://scala-ide.org/)をインストールすると良い。
 
+#### 改行文字の設定
+* ```File``` -> ```Settings``` -> ```Code Style``` -> ```General``` -> ```Line separator (for new files)``` でUNIXを選択する。
 
 ### IntelliJ のプロジェクトファイルを作成
 
@@ -37,9 +46,13 @@ Eclipseを使いたい場合は、[Scala IDE for Eclipse](http://scala-ide.org/)
 	
 File -> Open Project で、scala-cookbookのフォルダを選択
 
+File -> Project Structure -> Project SDK を確認。赤文字になっている場合、New -> JSDKを選択し、JDKがインストールされているフォルダを選択する。```C:\Program Files\Java\jdk1.7.0``` (Windows), ```/Library/Java/Home``` (MacOS X)など。
+
 #### scala-cookbookの中身
 ```src/main/scala/ScalaCookbook.scala```
 
+	package xerial.scb 
+	
 	object ScalaCookbook {
 	  def main(args:Array[String]) {
 	   println("Hello Scala Cookbook!")
@@ -73,6 +86,7 @@ Testing libraryではScalaTestを選択する。
 
 ```src/test/scala/ScalaCookbookTest.scala```
 
+	package xerial.scb
 	import org.scalatest.FunSuite
     
     class ScalaCookbookTest extends FunSuite {
