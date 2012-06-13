@@ -32,13 +32,13 @@ if [ -z "$COOKBOOK_HOME" ] ; then
     if expr "$link" : '/.*' > /dev/null; then
       PRG="$link"
     else
-      PRG="`dirname "$PRG"`/$link"
+      PRG="`/usr/bin/dirname "$PRG"`/$link"
     fi
   done
 
   saveddir=`pwd`
 
-  COOKBOOK_HOME=`dirname "$PRG"`/..
+  COOKBOOK_HOME=`/usr/bin/dirname "$PRG"`/..
 
   # make it fully qualified
   COOKBOOK_HOME=`cd "$COOKBOOK_HOME" && pwd`
@@ -74,7 +74,7 @@ if [ -z "$JAVA_HOME" ]; then
     readLink=`which readlink`
     if [ ! `expr "$readLink" : '\([^ ]*\)'` = "no" ]; then
       javaExecutable="`readlink -f \"$javaExecutable\"`"
-      javaHome="`dirname \"$javaExecutable\"`"
+      javaHome="`/usr/bin/dirname \"$javaExecutable\"`"
       javaHome=`expr "$javaHome" : '\(.*\)/bin'`
       JAVA_HOME="$javaHome"
       export JAVA_HOME
