@@ -56,9 +56,17 @@ tagline: 研究を進める上でぜひ身につけてほしい計算機のス�
   * R （Rは統計処理などにも使える）
   * Excel -> PDFの作成
   * Java(Scala)なら、JFreeChart, iTextでPDFのグラフ作成。フォントの埋め込み
+* Excelを使うなら...
+  * ctrl, shiftとカーソルキーで高速移動
+  * ピボットテーブル(SQLのgroup by演算をわかりやすくしたもの)の使い方
 * データベースの作成
   * PostgreSQL, MySQLなどRDBMSがどう動いているかの知識
   * sqlite3で、データベースを作成、SQLで検索
+  * group by(ピボットテーブル)の機能を使いやすいようにテーブルを設計する
+    * ```(id, param1, param2, ...)``` より、```(id, param_name, value)```、あるいは、```param1_table(id, value)```など。
+	* star schema ```(id, p1_id, p2_id, p3_id, ...)```, ```p1_table(id, value)```, ... というテーブル設計。joinは多数必要だが、一番データをわかりやすく管理できる。
+  * B+-treeによるindex作成 (create index) 
+  * viewの作成 (create view)
 
 ### UNIX環境に慣れる
 * SSHの設定
