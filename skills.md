@@ -87,6 +87,7 @@ tagline: 研究を進める上でぜひ身につけてほしい計算機のス�
    * bash: .bashrc, .bash_profile
    * zsh: .zshrc, .zprofile, .zlogin
    * exportによる環境変数の設定
+      * LANG, PATH, LD_LIBRARY_PATHなど
    * sourceコマンド
 * シェルの活用
    * キーバインド(Ctrl+a, e, r, s, b, fなど)
