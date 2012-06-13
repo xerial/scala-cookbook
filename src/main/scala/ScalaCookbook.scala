@@ -1,3 +1,5 @@
+package xerial.scb
+
 object ScalaCookbook {
     def main(args:Array[String]) {
 
