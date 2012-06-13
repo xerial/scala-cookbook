@@ -5,6 +5,9 @@ tagline: Run the first scala code
 ---
 {% include JB/setup %}
 
+
+### サンプルコードの取得
+
 Gitの設定
 
 	$ git config --global core.eol lf 
@@ -24,9 +27,9 @@ Gitの設定
 	$ ~/local/bin/scala-cookbook
     Hello Scala Cookbook!
 
-Java 1.6以上が必要。Macでgitをインストールするには、[Mac Ports](http://www.macports.org/)をインストール後、```sudu port install git-core```とする。Windowsで頑張る場合は、[cygwin](http://www.cygwin.com) をインストール（インストール時に、GNU Make, git, sshなどを同時にインストールすること）。コンソールはminttyが良い。
+* Java 1.6以上が必要。Macでgitをインストールするには、[Mac Ports](http://www.macports.org/)をインストール後、```sudo port install git-core```とする。Windowsで頑張る場合は、[cygwin](http://www.cygwin.com) をインストール（インストール時に、GNU Make, git, sshなどを同時にインストールすること）。コンソールはminttyが良い。
 
-Windowsユーザーでcygwin上でmake installがうまく動かない場合。コマンドプロンプトより、```bin\sbt```を起動してもよい。
+* Windowsユーザーでcygwinを使ったmake installがどうしてもうまく動かない場合。コマンドプロンプトより、```bin\sbt```を起動してもよい。
 
 
 ### IntelliJ IDEAをインストールする
@@ -76,9 +79,7 @@ main関数の中身を書き換えて、make installを実行すると再コン�
 
 * 初期設定: IntelliJで　```Settings``` -> ```Compiler``` -> ```Scala Compiler``` -> ```Project FSC``` -> scala-2.9.2 (version 2.9.2)を選択。FSCはFast Scala Compiler. コンパイル時間を短縮してくれる。
 
-[ScalaTest](http://www.scalatest.org/) を使う。
-
-新しいテストを作成。
+[ScalaTest](http://www.scalatest.org/) を使って新しいテストを作成
 ![scalatest](capture/lesson0/newtest.png)
 テストを作成するフォルダは、```src/test/scala```を選択。プログラム本体とテストコードを分離しておくのが慣習。
 
