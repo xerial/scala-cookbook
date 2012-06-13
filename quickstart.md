@@ -11,20 +11,22 @@ Gitの設定
 	# Windowsで改行文字がCRLFに変換されるのを防ぐ
 	$ git config core.autocrlf false
 
+サンプルコードの取得
 
-    # サンプルコードの取得
 	$ git clone git://github.com/xerial/scala-cookbook.git 
 	$ cd scala-cookbook 
 	# lesson0 branchのコードを取り出す
 	$ git checkout lesson0
 	# scalaコードの実行に必要なライブラリをダウンロードし、
-	# target/distにプログラム全体を作成後、$HOME/local以下にインストール
-    $ make install
+    # target/distにプログラム全体を作成後、$HOME/local以下にインストール
+	$ make install
 	# scalaコードを実行するスクリプトを起動
 	$ ~/local/bin/scala-cookbook
     Hello Scala Cookbook!
 
 Java 1.6以上が必要。Macでgitをインストールするには、[Mac Ports](http://www.macports.org/)をインストール後、```sudu port install git-core```とする。Windowsで頑張る場合は、[cygwin](http://www.cygwin.com) をインストール（インストール時に、GNU Make, git, sshなどを同時にインストールすること）。コンソールはminttyが良い。
+
+Windowsユーザーでcygwin上でmake installがうまく動かない場合。コマンドプロンプトより、```bin\sbt```を起動してもよい。
 
 
 ### IntelliJ IDEAをインストールする
@@ -33,7 +35,7 @@ Java 1.6以上が必要。Macでgitをインストールするには、[Mac Port
 
 * ```File``` -> ```Settings``` -> ```Plugins``` -> ```Scala``` にチェックを入れる
 
-[plugin](capture/lesson0/plugin.png)
+![plugin](capture/lesson0/plugin.png)
 
 Eclipseを使いたい場合は、[Scala IDE for Eclipse](http://scala-ide.org/)をインストールすると良い。
 
@@ -42,6 +44,7 @@ Eclipseを使いたい場合は、[Scala IDE for Eclipse](http://scala-ide.org/)
 
 ### IntelliJ のプロジェクトファイルを作成
 
+	# bin/sbt gen-idea を実行
 	$ make idea
 	
 File -> Open Project で、scala-cookbookのフォルダを選択
@@ -62,6 +65,7 @@ File -> Project Structure -> Project SDK を確認。赤文字になっている
 上記のコードを実行するスクリプトが```$HOME/local/bin/scala-cookbook```としてインストールされる。
 
 main関数の中身を書き換えて、make installを実行すると再コンパイルされる。
+	# bin/sbt package-distを実行後、target/dist内の内容を$HOME/local以下にコピー
 	$ make install
 	$ ~/local/bin/scala-cookbook
 
