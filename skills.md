@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Computing Skills
+title: Computer Skills
 tagline: 研究を進める上でぜひ身につけてほしい計算機のスキル
 ---
 {% include JB/setup %}
