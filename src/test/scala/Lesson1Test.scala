@@ -3,6 +3,7 @@ package xerial.scb
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{WordSpec, FlatSpec}
 import xerial.silk.util.Logger
+import java.io.File
 
 //--------------------------------------
 //
@@ -16,33 +17,44 @@ import xerial.silk.util.Logger
  */
 class Lesson1Test extends WordSpec with ShouldMatchers with Logger {
 
+  import Lesson1._
+
   "Lesson1" should {
-    "create arrays" in {
-      val a = Array(3, 2, 4, 5)
+    "download file" in {
+      val out = new File("target", "refFlat.gz")
+      download(HG19_REFFLAT, out)
+    }
 
-      debug(a.mkString(", "))
+    "parse UCSCGene" in {
+      val sampleLine = "C17orf76-AS1\tNR_027160\tchr17\t+\t16342300\t16345340\t16345340\t16345340\t5\t16342300,16342894,16343498,16344387,16344681,\t16342728,16343017,16343567,16344444,16345340,"
+      val g = UCSCGene.parse(sampleLine)
 
-      // accessor
-      a(0) should be (3)   // a(0) becomes a.apply(0)
-      a(1) should be (2)
+      g should be ('defined)
 
-      // update elements.
-      a(2) should be (4)
-      a(2) = 10    // translates to a.update(2, 10)
-      debug(a.mkString(", "))
-      a(2) should be (10)
+      g.map { gene =>
+        gene.name should be ("C17orf76-AS1")
+        gene.refSeqName should be ("NR_027160")
+        gene.start should be (16342300)
+
+        // Add tests for the other paremeters ...
+      }
+    }
+
+    "load UCSCGene" in {
+      val genes = loadUCSCGene
+
+      info("# of genes: %d", genes.length)
+      genes.length should be (43145)
+
+      val sorted = sortGenes(genes)
+      for((gene, index) <- sorted.take(5).zipWithIndex) {
+        debug("%d:%s", index, gene)
+      }
 
     }
 
-    "build arrays" in {
-      val b = Array.newBuilder[Int]
-
-      for(i <- 0 until 10)
-        b += i * i
-
-      val array = b.result
-
-      debug(array.mkString(", "))
+    "run lesson1" in {
+      lesson1
     }
 
 
