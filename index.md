@@ -30,6 +30,9 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
    * 要素を並び替える (sort)
    * マルチコアでコレクションを並列処理する (parallel collection, par)
 
+* **Lesson** sbt
+   * Scalaでコードを書き始めるための最小プロジェクト
+
 * **Lesson** : 制御構造
    * 特定の要素を見つける (find, exists)
    * List

@@ -25,7 +25,7 @@ tagline: Data structures in Scala
 
 Windows (DOS) プロンプトで実行する場合
 
-    scala-cookbook>bin\sbt -Dloglevel=debug "~test-only Lesson1Test"
+    scala-cookbook>bin\sbt -Dloglevel=debug "~test-only *Lesson1Test"
 
 上記のコマンドで、ソースコードに変更を加えるたびに、コンパイル、テストを実行を自動的に行ってくれる。
 
