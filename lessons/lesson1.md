@@ -38,6 +38,18 @@ Windows (DOS) プロンプトで実行する場合
 * gzipを解凍しながらtab区切りのテキストをparseして、collectionに格納
 * 作成した遺伝子リストを使って、Array, Map, Set, Tupleの使い方を学ぶ
 
+
+### 参考資料
+
+時間を見つけて以下の資料を眺めておくと良い：
+
+* [Scala API](http://www.scala-lang.org/api/current/index.html) 
+* [Scala Documentation](http://docs.scala-lang.org/)
+  * [Scala Collections](http://docs.scala-lang.org/overviews/collections/introduction.html)
+  * [The Architecture of Scala Collections](http://docs.scala-lang.org/overviews/core/architecture-of-scala-collections.html)
+  * [Parallel collections](http://docs.scala-lang.org/overviews/parallel-collections/overview.html)
+
+
 #### データセット
 ヒトゲノムの遺伝子ファイル：```http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/refFlat.txt.gz```
 サンプルデータ:
@@ -59,9 +71,6 @@ Windows (DOS) プロンプトで実行する場合
 
 コード中の```debug```, ```info```, ```time```などのメソッドはScalaコードのデバッグ用に私が普段使っているもの。
 
-### ScalaのAPI
-
-* [Scala API](http://www.scala-lang.org/api/current/index.html) 
 
 ### 遺伝子データをダウンロードする
 
