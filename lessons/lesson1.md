@@ -138,7 +138,8 @@ Windows (DOS) プロンプトで実行する場合
         }
 	}
 
-parseする際、データにエラーがあっても例外を飛ばしていない。[Option](http://www.scala-lang.org/api/current/index.html#scala.Option)を使うことで、コードの流れを妨げないようにできる。
+parseする際、データにエラーがあっても例外を飛ばしていない。[Option](http://www.scala-lang.org/api/current/index.html#scala.Option)を使うことで、コードの流れを妨げないようにできる。（上記のコードはtry..catchで囲んでよりエラーに強くできますが、簡単のため省略）
+
 * 正しく読めた -> Some(parseした結果)
 * 正しく読めなかった -> None 
 
@@ -246,10 +247,12 @@ Exonの数をカウントする。以下はすべて同じ結果になる
 
 ### groupBy
 
-遺伝子を染色体ごとにグループ分け
+遺伝子を染色体ごとにグループ分け。
 
 	val geneTable = genes.groupBy(_.chr)
 	// geneTable("chr21") などでアクセスできる
+
+この例では、```Map[String, Array[UCSCGene]]```が作成される。
 
 ### Map
 
