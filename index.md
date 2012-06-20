@@ -20,31 +20,23 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
    * テストを実行しながら開発(sbt)
    
 * [**Lesson 1**: Scala Collections](lessons/lesson1.html)
-   * Array, List, Map, Set
-   * Tuple
+   * Array, Map, Set,  Tuple
    * Option
    * 要素を連結した文字列の作成(mkString)
    * immutable（変更できない）コレクションを使う
-   * Listを作成する
    * Builderでコレクションを作成する
    * コレクション内を探索する (map, foreach, flatMap, reduce, fold)
    * 一部の要素を取り出す (filter, collect)
-   * 特定の要素を見つける (find, exists)
    * 要素を並び替える (sort)
    * マルチコアでコレクションを並列処理する (parallel collection, par)
-   * parallel collectionを用いたMapReduce
 
 * **Lesson** : 制御構造
+   * 特定の要素を見つける (find, exists)
+   * List
    * pattern matching
    * while
    * for comprehension
    * recursion
-* **Lesson** : 入出力 
-   * ファイルの読み書き
-   * 文字列の操作
-   * 正規表現   
-   * 外部プロセスの実行
-
 * **Lesson** : クラスとオブジェクト
    * パラメーターの定義
    * alternative constructor
@@ -52,16 +44,25 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
    * 初期化コード
 　 * lazy parameter
    * case class
+
    
 * **Lesson** - Trait
    * インターフェースの定義
    * 実装の共有
    * 多重継承時のlinearization
+
+
 * **Lesson** : デバッグ手法
    * ScalaTestを用いて、コードの挙動を確認する
    * Loggerを用いたデバッグ
    * timerで、コードの実行時間を計測する
    * Traitでfixtureを作成し、テストコードの共通設定を使い回す
+
+* **Lesson** : 入出力 
+   * ファイルの読み書き
+   * 文字列の操作
+   * 正規表現   
+   * 外部プロセスの実行
 * **Lesson** - 字句解析、構文解析
    * Combinator parsers
    * コマンドライン引数をparseする
