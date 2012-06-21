@@ -67,7 +67,7 @@ object ProjectBuild extends Build {
     )
 
     val coreLib = Seq(
-//      "org.xerial.silk" % "silk-core" % "0.4"
+      "org.xerial.silk" % "silk-core" % "0.6"
     )
   }
 
