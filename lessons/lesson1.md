@@ -44,6 +44,7 @@ Windows (DOS) プロンプトで実行する場合
 時間を見つけて以下の資料を眺めておくと良い：
 
 * [Scala API](http://www.scala-lang.org/api/current/index.html) 
+
 * [Scala Documentation](http://docs.scala-lang.org/)
   * [Scala Collections](http://docs.scala-lang.org/overviews/collections/introduction.html)
   * [The Architecture of Scala Collections](http://docs.scala-lang.org/overviews/core/architecture-of-scala-collections.html)
@@ -182,6 +183,10 @@ parseする際、データにエラーがあっても例外を飛ばしていな
 
 は、
 
+	list.foreach(x => ...)
+
+あるいは、```yield```文(後日解説)があると
+
 	list.flatMap(x => ...)   
 
 と同等。
@@ -189,14 +194,22 @@ parseする際、データにエラーがあっても例外を飛ばしていな
 #### Option 
 要素の中に、Optionの値が含まれている場合、
 
-	for(line <- list) { ... }
+	for(line <- Some(x)) { ... }
 
 は、
 
-	list.collect(case Some(x) => ... )
+	Some(x).foreach(x => ... )
 
-の用に実行され、Someの値のみがループ中で処理される。Noneの要素は無視される。[collect](http://www.scala-lang.org/api/current/index.html#scala.collection.GenTraversableLike)の中身はpartial function(一部分の入力のみに対して定義される関数)となる。つまり、不正な入力に対して例外処理を書く手間を省ける。
+と変換され、
 
+	[Option#foreach](https://github.com/scala/scala/blob/v2.9.2/src/library/scala/Option.scala#L196)の定義
+	def foreach[U](f: A => U) {
+		if (!isEmpty) f(this.get)
+	}
+
+となっていることにより、Someの値のみがループ中で処理される。Noneの要素は無視される。
+
+[collect](http://www.scala-lang.org/api/current/index.html#scala.collection.GenTraversableLike)も同様に、for文の本体はpartial function(一部分の入力のみに対して定義される関数)と考えることができる。つまり不正な入力に対して例外処理を書く手間を省ける。
 
 ### Sorting
 
