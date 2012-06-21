@@ -74,6 +74,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #224466;
 }
 
+.navbar-search .search-query {
+  width: 140px;
+}
+
 
 .well {
  padding: 10px;

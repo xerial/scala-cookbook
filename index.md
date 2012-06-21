@@ -8,18 +8,30 @@ tagline: Tutorial of the Scala Programming Language
 C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比較的新しい言語は学ぶ機会に乏しいのが現状です。
 この文章は主に研究室に入ってきた学生さんのスキルアップのために作成しています。そして、願わくば一人で多数の計算機を使いこなし、100人分の仕事ができるようになってくれれば幸いです。
 
-文章の修正、追加等はgithubの[pull request](https://help.github.com/articles/using-pull-requests)でお願いします。Scala Cookbookのソースコードは[こちら](https://github.com/xerial/scala-cookbook/tree/gh-pages).
+文章の修正、追加等はgithubの[pull request](https://help.github.com/articles/using-pull-requests)でお願いします。Scala Cookbookのソースコードは[こちら](https://github.com/xerial/scala-cookbook/tree/gh-pages)。 (gh-pagesブランチで更新管理されています)
+
+### 参考資料
+
+* [Scalaを自分で学ぶための資料](resources.html)
+* [ぜひ身につけてほしい計算機のスキル](skills.html)
+* [なぜScalaを学ぶのか](why-learning-scala.html)
+
+### Scala勉強会のスケジュール
+
+* 日時：毎週水曜日16:00~より90分。
+* 場所：東京大学柏キャンパス 総合研究棟 352号室
+* 参加：自由。部屋の規模が大きくないので、学外の方で参加希望の方は一度連絡していただけると助かります。
 
 ### Contents
 
-* [**Lesson 0**: Scala Quick Start](quickstart.html)
+* [**Lesson 0**: Scala Quick Start](quickstart.html)  (2012年6月12日)
    * サンプルコードをgitで取得
    * Scalaコードの実行
    * IntelliJのインストール
-   * ScalaTestによるテストコードの作成とテストの実行
+   * ScalaTestによるテストコードの作成とテストの実行  
    * テストを実行しながら開発(sbt)
    
-* [**Lesson 1**: Scala Collections](lessons/lesson1.html)
+* [**Lesson 1**: Scala Collections](lessons/lesson1.html) (2012年6月21日)
    * Array, Map, Set,  Tuple
    * Option
    * 要素を連結した文字列の作成(mkString)

@@ -192,7 +192,7 @@ parseする際、データにエラーがあっても例外を飛ばしていな
 と同等。
 
 #### Option 
-要素の中に、Optionの値が含まれている場合、
+Optionの値に対してfor loopを使うと、
 
 	for(line <- Some(x)) { ... }
 
@@ -200,16 +200,13 @@ parseする際、データにエラーがあっても例外を飛ばしていな
 
 	Some(x).foreach(x => ... )
 
-と変換され、
-
-	[Option#foreach](https://github.com/scala/scala/blob/v2.9.2/src/library/scala/Option.scala#L196)の定義
+と変換される。Noneの場合はどうなるか？というと、[Option#foreach](https://github.com/scala/scala/blob/v2.9.2/src/library/scala/Option.scala#L196)の定義を見てみると、
+	
 	def foreach[U](f: A => U) {
 		if (!isEmpty) f(this.get)
 	}
 
-となっていることにより、Someの値のみがループ中で処理される。Noneの要素は無視される。
-
-[collect](http://www.scala-lang.org/api/current/index.html#scala.collection.GenTraversableLike)も同様に、for文の本体はpartial function(一部分の入力のみに対して定義される関数)と考えることができる。つまり不正な入力に対して例外処理を書く手間を省ける。
+となっている。従って、Someの値のみがループ中で処理され、Noneの要素は無視されることになる。[collect](http://www.scala-lang.org/api/current/index.html#scala.collection.GenTraversableLike)も同様に、for文の本体はpartial function(一部分の入力のみに対して定義される関数)と考えることができる。つまり不正な入力に対して例外処理を書く手間を省ける。
 
 ### Sorting
 
