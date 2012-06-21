@@ -14,7 +14,7 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
-      .sidebar-nav {
+      .Sidebar-nav {
         padding: 9px 0;
       }
     </style>
@@ -32,9 +32,6 @@
  
 
     <link rel="stylesheet" href="{{ BASE_PATH }}/stylesheets/styles.css">
-<!--
-    <link rel="stylesheet" href="{{ BASE_PATH }}/stylesheets/pygment_trac.css">
--->
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
@@ -77,18 +74,13 @@
     </div>
 
     <div class="container">
-<!--
-	  <div class="span3">
-	    {% include sidenav.html %}
-	  </div>
--->
-	    {{ content }}
-	    {% include disquss.html %}
-      
-      <footer>
+     {{ content }}
+     {% include disquss.html %}
+     <footer>
 	<p>This site is maintained by <a href="http://www.xerial.org/leo">Taro L. Saito</a> (Twitter <a href="http://twitter.com/#!/taroleo">@taroleo</a>) </p>
-      </footer>
-    </div>  
+	<a href="https://github.com/xerial/scala-cookbook/commits/gh-pages.atom"><img align="right" height="20px" width="20px" src="{{ BASE_PATH }}/images/feed-icon-28x28.png" title="RSS feed of updates to the github repo hosting this site"></a>
+     </footer>
+   </div>  
 
     <!-- Le javascript
     ================================================== -->
