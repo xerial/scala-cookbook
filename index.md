@@ -45,15 +45,14 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
    * [Scalaでプロジェクトを作成する](lessons/minimum-project.html)
    * [テストコードの作成](lessons/scalatest.html)
    * [ループあれこれ](lessons/loop.html)
-
-* **Lesson** : 制御構造
-   * 特定の要素を見つける (find, exists)
-   * List
+      * list, while, for, recursion
+   * loan pattern
    * pattern matching
-   * while
-   * for comprehension
-   * recursion
+   
+   * 特定の要素を見つける (find, exists)
+
 * **Lesson** : クラスとオブジェクト
+   * object (singleton)
    * パラメーターの定義
    * alternative constructor
    * 変数のスコープ
