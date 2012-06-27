@@ -49,7 +49,7 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
    * [テストコードの作成](lessons/scalatest.html)
    * [ループあれこれ](collection/2012/06/27/loops)
       * list, while, for, recursion
-   * loan pattern
+   * [loan pattern](design-pattern/2012/06/27/loan-pattern)
    
    * 特定の要素を見つける (find, exists)
    * クラスとオブジェクト
