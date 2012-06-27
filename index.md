@@ -7,20 +7,19 @@ disquss: false
 {% include JB/setup %}
 
 
-
 C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比較的新しい言語は学ぶ機会に乏しいのが現状です。
 この文章は主に研究室に入ってきた学生さんのスキルアップのために作成しています。そして、願わくば一人で多数の計算機を使いこなし、100人分の仕事ができるようになってくれれば幸いです。
 
 文章の修正、追加等はgithubの[pull request](https://help.github.com/articles/using-pull-requests)でお願いします。Scala Cookbookのソースコードは[こちら](https://github.com/xerial/scala-cookbook/tree/gh-pages)。 (gh-pagesブランチで更新管理されています)
 
 
-### 参考資料
+## 参考資料
 
 * [Scalaを自分で学ぶための資料](resources.html)
 * [ぜひ身につけてほしい計算機のスキル](skills.html)
 * [なぜScalaを学ぶのか](why-learning-scala.html)
 
-### Scala勉強会のスケジュール
+## Scala勉強会のスケジュール
 
 * 日時：毎週水曜日16:00~より90分。
 * 場所：東京大学柏キャンパス 総合研究棟 352号室
@@ -29,7 +28,10 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
 ## Recent Updates
 {% include recent_posts.html %}
 
-### Contents
+# Recipes
+{% include recipes.html %} 
+
+# Contents
 
 * [**Lesson 0**: Scala Quick Start](quickstart.html)  (2012年6月12日)
    * サンプルコードをgitで取得
@@ -51,9 +53,9 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
 * **Lesson 2** (2012年6月27日)
    * [Scalaでプロジェクトを作成する](lessons/minimum-project.html)
    * [テストコードの作成](lessons/scalatest.html)
-   * [ループあれこれ](collection/2012/06/27/loops)
+   * [ループあれこれ]({% post_url 2012-06-27-loops %})
       * list, while, for, recursion
-   * [loan pattern](design-pattern/2012/06/27/loan-pattern)
+   * [loan pattern]({% post_url 2012-06-27-loan-pattern %})
    
    * 特定の要素を見つける (find, exists)
    * クラスとオブジェクト

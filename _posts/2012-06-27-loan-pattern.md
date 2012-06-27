@@ -2,8 +2,8 @@
 layout: post
 title: "Loan Pattern"
 description: "借りたら返す"
-category: design-pattern
-tags: []
+category: recipes
+tags: [design-pattern]
 ---
 {% include JB/setup %}
 

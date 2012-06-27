@@ -14,17 +14,17 @@
 	      <li class="dropdown">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		  <i class="icon-tags icon-white"></i> 
-		  Categories 
+		  Tags 
 		  <b class="caret"></b>
 		</a>
 		<ul class="dropdown-menu">
-		  {% assign categories_list = site.categories %}
-		  {% for category in site.categories %} 
-		  <li><a href="{{ BASE_PATH}}/categories.html#{{ category[0] }}-ref">{{ category[0] | join: "/" }}</a></li>
+		  {% assign tags_list = site.tags %}
+		  {% for tag in site.tags %} 
+		  <li><a href="{{ BASE_PATH }}/tags.html#{{ tag[0] }}-ref">{{ tag[0] | join: "/" }}</a></li>
 		  {% endfor %}
 		</ul>
 	      </li>
-	      <li><a href="{{ BASE_PATH }}/pages.html"><i class="icon-th-list icon-white"></i> Page List </a></li>
+	      <li><a href="{{ BASE_PATH }}/pages.html"><i class="icon-th-list icon-white"></i> Pages </a></li>
 <!--	      <li><a><i class="icon-arrow-down icon-white"></i> Download</a></li>-->
 	      <li><a href="http://github.com/xerial/scala-cookbook"><i class="icon-leaf icon-white"></i> GitHub</a></li>
 	      <li><a><i class="icon-user icon-white"></i> About</a></li> 

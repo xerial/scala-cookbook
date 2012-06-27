@@ -1,5 +1,10 @@
 <div class="page-header">
-  <h1>{{ page.title }} <small>{{ page.description }} <a class="label label-info" href="{{ BASE_PATH }}/categories.html#{{ page.category }}-ref">{{ page.category }}</a></small> </h1>
+  {% assign tags_list = page.tags %}
+  <h1>{{ page.title }} <small>{{ page.description }} 
+  {% for tag in tags_list %}
+<a class="label label-info" href="{{ BASE_PATH }}/tags.html#{{ page.category }}-ref">{{ page.tags }}</a> 
+  {% endfor %}
+</small> </h1>
 </div>
 
 <div class="row">
@@ -32,7 +37,6 @@
   {% unless page.tags == empty %}
     <h4>Tags</h4>
     <ul class="tag_box">
-    {% assign tags_list = page.tags %}
     {% include JB/tags_list %}
     </ul>
   {% endunless %}  
