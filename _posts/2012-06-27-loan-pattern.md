@@ -72,7 +72,7 @@ Scalaではコードブロック（つまり関数）を引数として渡せる
 C++で似たようなパターンを実現するには以下の手法がある
 
 * [scoped_ptr](http://www.boost.org/doc/libs/1_39_0/libs/smart_ptr/scoped_ptr.htm)は、ブロックから出たときにリソースの解放を行う。constructorで初期化、ブロックを出たときにdestructorが呼ばれるのでリソースの解放ができる。
-* [Wikipedia: RAII (Resouce Acquisition Is Initialization)](http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization)
+* [Wikipedia: RAII (Resource Acquisition Is Initialization)](http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization)
 
 
 
