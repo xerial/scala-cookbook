@@ -14,7 +14,7 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
-      .sidebar-nav {
+      .Sidebar-nav {
         padding: 9px 0;
       }
     </style>
@@ -32,9 +32,6 @@
  
 
     <link rel="stylesheet" href="{{ BASE_PATH }}/stylesheets/styles.css">
-<!--
-    <link rel="stylesheet" href="{{ BASE_PATH }}/stylesheets/pygment_trac.css">
--->
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
@@ -59,13 +56,15 @@
 	  <div class="nav-collapse">
             <ul class="nav">
 <!--	      <li><a><i class="icon-book icon-white"></i> Lessons </a></li>-->
-	      <li><a href="{{ BASE_PATH }}/pages.html"><i class="icon-th-list icon-white"></i> Pages </a></li>
+	      <li><a href="{{ BASE_PATH }}/"><i class="icon-home icon-white"></i> Home </a></li>
+	      <li><a href="{{ BASE_PATH }}/pages.html"><i class="icon-th-list icon-white"></i> Page List </a></li>
 <!--	      <li><a><i class="icon-arrow-down icon-white"></i> Download</a></li>-->
 	      <li><a href="http://github.com/xerial/scala-cookbook"><i class="icon-leaf icon-white"></i> GitHub</a></li>
 	      <li><a><i class="icon-user icon-white"></i> About</a></li> 
 	      <li>
-              <form method="get" action="{{ BASE_PATH }}/search.html" class="navbar-search pull-left">
-		<input type="text" class="search-query" placeholder="Search" name="q" id="q">
+              <form method="get" action="{{ BASE_PATH }}/search.html" class="navbar-search pull-left" style="margin-top:0px;">
+		<input type="text" class="search-query" placeholder="Search" name="q" id="q" style="margin-top:5px;">
+		<button type="submit" class="btn"><i class="icon-search"></i></button>
 	      </form>
 	      </li>
             </ul>
@@ -75,20 +74,13 @@
     </div>
 
     <div class="container">
-	<div class="row">
-	  <div class="span3">
-	    {% include sidenav.html %}
-	  </div>
-	  <div class="span9">
-	    {{ content }}
-	  </div>
-	</div>
-
-      
-      <footer>
+     {{ content }}
+     {% include disquss.html %}
+     <footer>
 	<p>This site is maintained by <a href="http://www.xerial.org/leo">Taro L. Saito</a> (Twitter <a href="http://twitter.com/#!/taroleo">@taroleo</a>) </p>
-      </footer>
-    </div>  
+	<a href="https://github.com/xerial/scala-cookbook/commits/gh-pages.atom"><img align="right" height="20px" width="20px" src="{{ BASE_PATH }}/images/feed-icon-28x28.png" title="RSS feed of updates to the github repo hosting this site"></a>
+     </footer>
+   </div>  
 
     <!-- Le javascript
     ================================================== -->

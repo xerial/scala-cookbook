@@ -11,6 +11,12 @@ p, a, li {
  font:14px 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+h1 { font-size: 22px; }
+h2 { font-size: 20px; }
+h3 { font-size: 18px; }
+h4 { font-size: 16px; }
+h5 { font-size: 14px; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family:'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#222;
@@ -72,6 +78,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
   text-decoration: none;
   background-color: #224466;
+}
+
+.navbar-search .search-query {
+  width: 140px;
 }
 
 
