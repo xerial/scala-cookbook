@@ -2,6 +2,7 @@
 layout: page
 title: Scala Cookbook
 tagline: Tutorial of the Scala Programming Language
+disquss: false
 ---
 {% include JB/setup %}
 
