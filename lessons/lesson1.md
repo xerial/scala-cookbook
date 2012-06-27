@@ -7,6 +7,7 @@ tagline: Data structures in Scala
 
 ### コードの取得
 
+	$ git clone git://github.com/xerial/scala-cookbook.git
 	$ cd scala-cookbook
 	$ git fetch
 	$ git checkout lesson1
