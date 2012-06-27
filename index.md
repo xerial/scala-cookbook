@@ -47,7 +47,7 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
 * **Lesson 2** (2012年6月27日)
    * [Scalaでプロジェクトを作成する](lessons/minimum-project.html)
    * [テストコードの作成](lessons/scalatest.html)
-   * [ループあれこれ](lessons/loop.html)
+   * [ループあれこれ](collection/2012/06/27/loops)
       * list, while, for, recursion
    * loan pattern
    
