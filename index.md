@@ -22,6 +22,9 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
 * 場所：東京大学柏キャンパス 総合研究棟 352号室
 * 参加：自由。部屋の規模が大きくないので、学外の方で参加希望の方は一度連絡していただけると助かります。
 
+## Recent Updates
+{% include recent_posts.html %}
+
 ### Contents
 
 * [**Lesson 0**: Scala Quick Start](quickstart.html)  (2012年6月12日)
@@ -47,19 +50,19 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
    * [ループあれこれ](lessons/loop.html)
       * list, while, for, recursion
    * loan pattern
-   * pattern matching
    
    * 特定の要素を見つける (find, exists)
+   * クラスとオブジェクト
+     * object (singleton)
+     * パラメーターの定義
+     * 初期化コード
+  　 * lazy parameter
 
-* **Lesson** : クラスとオブジェクト
-   * object (singleton)
-   * パラメーターの定義
-   * alternative constructor
-   * 変数のスコープ
-   * 初期化コード
-　 * lazy parameter
+   * pattern matching
    * case class
 
+   * alternative constructor
+   * 変数のスコープ
    
 * **Lesson** - Trait
    * インターフェースの定義

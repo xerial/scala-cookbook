@@ -95,7 +95,7 @@ Scalaのコンパイル、テストの実行にはsbt (Simple Build Tool) (全�
 	
 ```$HOME/.ivy2/local/(group id)/(artifact id)-(version)```以下に、コードライブラリ(jar, javadoc, source codeのjarなど)が作成される。作成されたものにテストコードは含まれない。
 
-group idは、自分の持っているドメイン名に対応するものを使うのが慣習。```utgenome.org```を保有しているなら、```org.utgenome```がgroup idになる。 
+group idは、自分の持っているドメイン名に対応するものを使うのが慣習。```utgenome.org```を保有しているなら、```org.utgenome```がgroup id。 
 
 
 ### IntelliJのプロジェクトの作成
