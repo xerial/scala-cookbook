@@ -42,7 +42,7 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
    * 要素を並び替える (sort)
    * マルチコアでコレクションを並列処理する (parallel collection, par)
 * **Lesson 2** (2012年6月27日)
-   * [Scalaでコードを書き始めるための最小プロジェクト](lessons/minimum-project.html)
+   * [Scalaでプロジェクトを作成する](lessons/minimum-project.html)
    * [テストコードの作成](lessons/scalatest.html)
    * [ループあれこれ](lessons/loop.html)
 
