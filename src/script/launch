@@ -130,6 +130,7 @@ CLASSWORLDS_LAUNCHER=org.codehaus.plexus.classworlds.launcher.Launcher
 exec "$JAVACMD" ${JVM_OPT} \
   -classpath "${PROG_HOME}"/lib/plexus-classworlds-*.jar \
   "-Dclassworlds.conf=${PROG_HOME}/bin/classworld.conf" \
+  "-Dproject.home=${PROG_HOME}" \
   ${CLASSWORLDS_LAUNCHER} "$@"
 
 

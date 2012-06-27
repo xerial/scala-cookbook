@@ -6,7 +6,7 @@ import Keys._
 object ProjectBuild extends Build {
 
    lazy val root = Project(
-     id ="sample-project",
+     id ="sample-project",  // Set your project name here
      base = file("."),
      settings = 
        Defaults.defaultSettings 
@@ -20,7 +20,9 @@ object ProjectBuild extends Build {
     	  parallelExecution := true,
     	  crossPaths := false,
        	  libraryDependencies ++= Seq(
+	     "org.codehaus.plexus" % "plexus-classworlds" % "2.4",
              "org.scalatest" %% "scalatest" % "2.0.M1" % "test"
+	      // Add other libraries here
 	  )
      )
    )
