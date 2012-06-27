@@ -1,0 +1,41 @@
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+	  <div class="nav-collapse">
+            <ul class="nav">
+<!--	      <li><a><i class="icon-book icon-white"></i> Lessons </a></li>-->
+	      <li><a href="{{ BASE_PATH }}/"><i class="icon-home icon-white"></i> Home </a></li>
+	      <li class="dropdown open">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		  <i class="icon-tags icon-white"></i> 
+		  Categories 
+		  <b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+		  {% assign categories_list = site.categories %}
+		  {% for category in site.categories %} 
+		  <li><a href="{{ BASE_PATH}}/categories.html#{{ category[0] }}-ref">{{ category[0] | join: "/" }}</a></li>
+		  {% endfor %}
+		</ul>
+	      </li>
+	      <li><a href="{{ BASE_PATH }}/pages.html"><i class="icon-th-list icon-white"></i> Page List </a></li>
+<!--	      <li><a><i class="icon-arrow-down icon-white"></i> Download</a></li>-->
+	      <li><a href="http://github.com/xerial/scala-cookbook"><i class="icon-leaf icon-white"></i> GitHub</a></li>
+	      <li><a><i class="icon-user icon-white"></i> About</a></li> 
+	      <li>
+              <form method="get" action="{{ BASE_PATH }}/search.html" class="navbar-search pull-left" style="margin-top:0px;">
+		<input type="text" class="search-query" placeholder="Search" name="q" id="q" style="margin-top:5px;">
+		<button type="submit" class="btn"><i class="icon-search"></i></button>
+	      </form>
+	      </li>
+            </ul>
+	  </div>
+        </div>
+      </div>
+    </div>
