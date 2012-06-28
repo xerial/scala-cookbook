@@ -23,6 +23,7 @@ Scalaの開発者(Martin Odersky)らによる参考書。おそらくこれが�
 
 * [Purely Functional Data Structures](http://www.cs.cmu.edu/~rwh/theses/okasaki.pdf) by Chris Okasaki
   * 関数型言語でimmutableで性能の良いデータ構造をどうデザインするか
+  * Listなど、同等の実装がScalaでも使われている
   * Amortized complexity (償却計算量) の考え方が基本
 
 * [Introuction to Algorithms. Third Edition for Kindle](http://www.amazon.com/Introduction-Algorithms-Third-Edition-ebook/dp/B007CNRCAO/ref=tmm_kin_title_0)
