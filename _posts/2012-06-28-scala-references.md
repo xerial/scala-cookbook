@@ -8,7 +8,7 @@ tags: [references]
 {% include JB/setup %}
 
 * [Programming in Scala (2nd Ed)](http://www.artima.com/shop/programming_in_scala)
-Scalaの開発者(Martin Odersky)らによる参考書。おそらくこれが一番良い教科書。CSの素養があればScalaのデザインについて理解が深まる本。
+Scalaの開発者(Martin Odersky)らによる参考書。おそらくこれが一番良い教科書。CSの素養があればScalaのデザインについてより理解が深まる本。
 
 * [Scala Documentation](http://docs.scala-lang.org/)
   * [Scala Collections](http://docs.scala-lang.org/overviews/collections/introduction.html)
@@ -16,6 +16,12 @@ Scalaの開発者(Martin Odersky)らによる参考書。おそらくこれが�
   * [Parallel collections](http://docs.scala-lang.org/overviews/parallel-collections/overview.html)
 * [Scala API](http://www.scala-lang.org/api/current/index.html)
 * [Scala School by Twitter inc.](http://twitter.github.com/scala_school/)
+
+* [Purely Functional Data Structures](http://www.cs.cmu.edu/~rwh/theses/okasaki.pdf) by Chris Okasaki
+  * 関数型言語でimmutableで性能の良いデータ構造をどうデザインするか
+  * Amortized complexity (償却計算量) の考え方が基本
+  
+
 
 ### Other resources
 * [SBT (simple build tool)](https://github.com/harrah/xsbt/wiki)　- Scalaのコードをビルドするのに（今のところ）一番便利。

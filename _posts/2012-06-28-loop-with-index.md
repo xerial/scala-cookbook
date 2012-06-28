@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "インデックスを付けてループをまわす"
+title: "インデックスを付きのループ"
 description: "zipWithIndex"
 category: recipes
 tags: [collection]
