@@ -6,7 +6,7 @@ disqus: false
 ---
 {% include JB/setup %}
 
-Scalaでのプログラミングについて紹介していきます。
+Scala Cookbook [http://xerial.org/scala-cookbook](http://xerial.org/scala-cookbook) では、Scalaでのプログラミングについて紹介していきます。
 
 * [Scala勉強会の予定](schedule.html) - 日程、今後紹介する内容など
 
