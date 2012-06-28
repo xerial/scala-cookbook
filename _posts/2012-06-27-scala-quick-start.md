@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Scala Quick Start
-description: "Run your first scala code"
+description: "IntelliJのセットアップとコードの実行"
 category: recipes
 tags: [setup]
 ---

@@ -5,8 +5,6 @@ tagline: Scalaで実用的なコードを書き始めるために必要な知識
 ---
 {% include JB/setup %}
 
-# Scala プロジェクトの作成
-
 ## sbt
 
 Scalaのコンパイル、テストの実行にはsbt (Simple Build Tool) (全然simpleではないが!) を使うのが2012年現在でのbest practice. IDEではあまりコンパイルしない。

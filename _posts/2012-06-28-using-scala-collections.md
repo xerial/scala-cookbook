@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Using Scala Collections"
-description: "Data structures in Scala"
+title: "Scalaのコレクションを使う"
+description: "基本的なデータ構造の使い方"
 category: recipes
 tags: [collection]
 ---
