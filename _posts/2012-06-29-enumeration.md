@@ -7,12 +7,23 @@ tags: [AntiPattern]
 ---
 {% include JB/setup %}
 
+## ScalaのEnumerationは使いにくい
+
 Scalaには列挙型として[Enumeration](http://www.scala-lang.org/api/current/index.html#scala.Enumeration)が用意されているが、以下の理由で使いにくい。
 
  * 値にメソッドを定義できない
- * DNAというEnumerationを定義しても、個々の値は、DNA.Value型として扱わなければならないため、コードが不自然になる。また`import DNA._` など余計なimport文が必要。
- 
+ * DNAというEnumerationを定義しても、個々の値は、DNA.Value型として扱わなければならないため、コードが不自然になる。
 
+
+	object DNA extends Enumeration {
+	   val A, C, G, T, N = Value
+    }
+	
+	val base : DNA.Value = DNA.A
+ 
+また、DNA.Value型を拡張することが許されていないので、ラベルとしての機能しか持たせることができない。
+
+## 解決策
 
 ScalaではJavaのコードが使えるので、Javaの[enum](http://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)を使うのが簡便だが、Scalaのコードだけで同様の機能を実装するには、objectを使うと良い。
 
@@ -47,7 +58,7 @@ DNAの塩基を表すコード。[genome-weaverのDNA.scala](https://github.com/
 
 このように定義すると、パターンマッチが問題なく使えるし、complementなど機能を充実させることもできる。
 
-	val l = DNA.G
+	val l : DNA = DNA.G
 	
 	l match {
 	  case DNA.A => ...
