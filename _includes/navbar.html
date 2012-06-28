@@ -20,7 +20,7 @@
 		<ul class="dropdown-menu">
 		  {% assign tags_list = site.tags %}
 		  {% for tag in site.tags %} 
-		  <li><a href="{{ BASE_PATH }}/tags.html#{{ tag[0] }}-ref">{{ tag[0] | join: "/" }}</a></li>
+		  <li style="text-transform:capitalize;"><a href="{{ BASE_PATH }}/tags.html#{{ tag[0] }}-ref">{{ tag[0] | join: "/" }}</a></li>
 		  {% endfor %}
 		</ul>
 	      </li>

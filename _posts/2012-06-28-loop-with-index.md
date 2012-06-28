@@ -7,7 +7,7 @@ tags: [collection]
 ---
 {% include JB/setup %}
 
-配列へのアクセス、要素のrankなど、添字（インデックス）を使いたい場合があります。
+配列へのアクセス、要素のrankなど、添字（インデックス）を使いたい場合、
 
 C++/Javaなどでの書き方
 
@@ -15,18 +15,16 @@ C++/Javaなどでの書き方
 		printf("%d-th element:%s\n", i, array[i])
 	}
 
-Scalaでも添字を使うことはできます。
+Scalaでも添字を使うことはできる。
 
 	val l = Array("A", "B", "C")
 	for(i <- 0 until l.length) 
 		println("%d-th element:%s".format(i, l(i)))
 
-zipWithIndexを使うと、添字の指定や配列の長さの範囲の指定が省けて便利。
+ここで`zipWithIndex`を使うと、添字の指定や配列の長さの範囲の指定が省けて便利。
 
 	for((elem, i) <- l.zipWithIndex) 
 		println("%d-th element:%s".format(i, elem))
-
-forループ内で`(elem, i)`と`(A, 0), ...`のパターンマッチが行われている。
 
 `zipWithIndex`の動作
 
@@ -37,5 +35,5 @@ forループ内で`(elem, i)`と`(A, 0), ...`のパターンマッチが行わ�
 	res0: Array[(java.lang.String, Int)] = Array((A,0), (B,1), (C,2))
 	
 
-
+forループ内では`(elem, i)`と`(A, 0), ...`のパターンマッチが行われている。
 	

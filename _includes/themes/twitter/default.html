@@ -46,25 +46,21 @@
     {% include navbar.html %}
 
     <div class="container-fluid">
-     <div class="row-fluid">
-       <div class="span12">
-     {{ content }}
-     {% include disquss.html %}
-    <hr>
-     <footer>
-	<div class="row">
-	  <div class="span12" style="text-align:center;">
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><br/>Scala Cookbook</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.xerial.org/leo/" property="cc:attributionName" rel="cc:attributionURL">Taro L. Saito</a> (Twitter <a href="http://twitter.com/#!/taroleo">@taroleo</a>) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
-           </div>
-          <!-- <div class="span2">
-	 <a href="https://github.com/xerial/scala-cookbook/commits/gh-pages.atom"><img height="20px" width="20px" src="{{ BASE_PATH }}/images/feed-icon-28x28.png" title="RSS feed of updates to the github repo hosting this site"></a>
-	 </div>
-	 -->
-       </div>
-     </footer>
-       </div>
-     </div>
-   </div>  
+      <div class="row-fluid">
+	<div class="span12">
+	  {{ content }}
+	  {% include disquss.html %}
+	  <hr>
+	  <footer>
+	    <div class="row">
+	      <div class="span12" style="text-align:center;">
+		<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><br/>Scala Cookbook</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.xerial.org/leo/" property="cc:attributionName" rel="cc:attributionURL">Taro L. Saito</a> (Twitter <a href="http://twitter.com/#!/taroleo">@taroleo</a>) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+              </div>
+	    </div>
+	  </footer>
+	</div>
+      </div>
+    </div>  
 
     <!-- Le javascript
     ================================================== -->
@@ -83,8 +79,7 @@
     <script src="{{ BASE_PATH}}/assets/js/bootstrap-carousel.js"></script>
     <script src="{{ BASE_PATH}}/assets/js/bootstrap-typeahead.js"></script>
     <script src="{{ BASE_PATH}}/assets/js/google-code-prettify/prettify.js"></script>
-   <script>$(document).ready( function(){$('code').parent('pre').addClass('prettyprint');prettyPrint();});
-  </script>
+   <script>$(document).ready( function(){$('code').parent('pre').addClass('prettyprint');prettyPrint();});</script>
     {% include JB/analytics %}
   </body>
 </html>
