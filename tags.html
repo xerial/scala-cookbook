@@ -8,9 +8,9 @@ disqus: false
 {% include JB/setup %}
 
 {% for tag in site.tags %} 
-<div class="row-fluid">
+<div id="{{ tag[0] }}-ref" class="row-fluid category">
 <div class="span8">
- <h3  id="{{ tag[0] }}-ref" style="text-transform:capitalize;">{{ tag[0] }}</h3>
+ <h3 style="text-transform:capitalize;">{{ tag[0] }}</h3>
  <div class="well">
   <dl>
 {% assign pages_list = tag[1] %}  
