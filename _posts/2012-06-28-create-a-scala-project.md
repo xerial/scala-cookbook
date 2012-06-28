@@ -90,6 +90,11 @@ GitHub [https://github.com/xerial/scala-cookbook/tree/min-project](https://githu
 	   "org.xerial" % "sqlite-jdbc" % "3.7.2"
 	) 
 
+### IntelliJのプロジェクトの作成
+
+	$ bin/sbt gen-idea
+
+ライブラリの追加を行うごとにこのコマンドを実行するとよい。IntelliJでプロジェクトのリロードが必要になる。
 
 ### ライブラリの作成
 
@@ -99,11 +104,29 @@ GitHub [https://github.com/xerial/scala-cookbook/tree/min-project](https://githu
 
 group idは、自分の持っているドメイン名に対応するものを使うのが慣習。```utgenome.org```を保有しているなら、```org.utgenome```がgroup id。 
 
+## 実行可能な形態での配布
 
-### IntelliJのプロジェクトの作成
+	$ bin/sbt package-dist
+を実行すると、target/distフォルダ内にそのまま配布できる形のプログラムができあがる。
 
-	$ bin/sbt gen-idea
+### フォルダの内容
+
+`target/dist`の中身は以下のようになっている。
 	
+	bin/launch	              実行用スクリプト
+	bin/classworld.conf       classworldの設定ファイル。どのmain関数を呼ぶか、 
+	                          どのフォルダのライブラリを使うかが記述されている。
+	lib/scala-library.jar     scalaのlibrary本体
+	lib/classworld-2.4.jar    各種jarファイルを読み込むためのライブラリ。 
+	                          launchから呼び出される。
+	lib/sample-project-1.0-SNAPSHOT.jar   
+	                          作成したプログラム
+	VERSION                   プログラムのversion情報が書かれている
+	
+
+`bin/launch`、`bin/classworld.conf`は、`src/script`以下に含まれている。プログラムの名前を変更したい場合は、 `src/script/launch`を`src/script/(your program name)`などに変更すること。プログラムのエントリポイント(main関数の場所)を変更するには、`src/script/classworld.conf`の内容を変更するとよい。
+
+
 
 
 

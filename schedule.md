@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Scala勉強会 日程
+title: Scala勉強会 
 tagline: Tutorial of the Scala Programming Language
 disquss: false
 ---
