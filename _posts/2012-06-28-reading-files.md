@@ -3,7 +3,7 @@ layout: post
 title: "ファイルを読む"
 description: "バッファを経由、一行ずつ、あるいはIteratorを使う"
 category: recipes
-tags: [IO]
+tags: [I/O]
 ---
 {% include JB/setup %}
 
