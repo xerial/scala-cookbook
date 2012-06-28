@@ -2,7 +2,7 @@
   {% assign tags_list = page.tags %}
   <h1>{{ page.title }} <small>{{ page.description }} 
   {% for tag in tags_list %}
-<a class="label label-info" href="{{ BASE_PATH }}/tags.html#{{ page.category }}-ref">{{ page.tags }}</a> 
+<a class="label label-info" href="{{ BASE_PATH }}/tags.html#{{ page.tags[0] }}-ref">{{ page.tags }}</a> 
   {% endfor %}
 </small> </h1>
 </div>

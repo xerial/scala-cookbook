@@ -1,22 +1,35 @@
 ---
 layout: page
-title: Tags
-header: Posts By Tag
+title: Scala Recipes
+header: Posts By Tags
 group: navigation
 disquss: false
 ---
 {% include JB/setup %}
 
-<ul class="tag_box inline">
-  {% assign tags_list = site.tags %}  
-  {% include JB/tags_list %}
-</ul>
-
-
 {% for tag in site.tags %} 
-  <h2 id="{{ tag[0] }}-ref">{{ tag[0] }}</h2>
-  <ul>
-    {% assign pages_list = tag[1] %}  
-    {% include JB/pages_list %}
-  </ul>
+<div class="row-fluid">
+<div class="span8">
+ <h3  id="{{ tag[0] }}-ref" style="text-transform:capitalize;">{{ tag[0] }}</h3>
+ <div class="well">
+  <dl>
+{% assign pages_list = tag[1] %}  
+{% for node in pages_list %}
+ {% if node.title != null and node.category == "recipes" %}
+ {% if group == null or group == node.group %}
+  <dt>
+    <a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a>
+    <small style="color:#999; font-weight:normal;">{{ node.date | date:"%Y-%m-%d" }}</small>
+  </dt>
+  <dd>{% if node.description %} {{node.description}} {% endif %}</dd>
+ {% endif %}
+ {% endif %}
 {% endfor %}
+  </dl>
+ </div> <!-- well -->
+</div> <!-- span4 -->
+</div>
+{% endfor %}
+
+
+

@@ -3,13 +3,13 @@ layout: post
 title: "ファイルを読む"
 description: "バッファを経由、一行ずつ、あるいはIteratorを使う"
 category: recipes
-tags: [I/O]
+tags: [IO]
 ---
 {% include JB/setup %}
 
 ## バッファを経由して読む
 
-[Loan pattern](2012-06-27-loan-pattern.html)を使う。ファイルの入出力の機能はJavaのライブラリから借りてくる。
+[Loan pattern]({{BASE_PATH}}/recipes/2012/06/27/loan-pattern)を使う。ファイルの入出力の機能はJavaのライブラリから借りてくる。
 
 	def open(fileName:String)(body:InputStream => Unit) : Unit = {
 		// ディスクへの細かなアクセスを避けるため、バッファを介してファイルを読む
