@@ -9,19 +9,18 @@ disqus: false
 
 {% for tag in site.tags %} 
 <div id="{{ tag[0] }}-ref" class="row-fluid category">
-<div class="span8">
+<div class="span12">
  <h3 style="text-transform:capitalize;">{{ tag[0] }}</h3>
  <div class="well">
-  <dl>
+  <dl class="dl-horizontal">
 {% assign pages_list = tag[1] %}  
 {% for node in pages_list %}
  {% if node.title != null and node.category == "recipes" %}
  {% if group == null or group == node.group %}
-  <dt>
+  <dt style="width:200px; float:left; text-align:left; ">
     <a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a>
-    <small style="color:#999; font-weight:normal;">{{ node.date | date:"%Y-%m-%d" }}</small>
   </dt>
-  <dd>{% if node.description %} {{node.description}} {% endif %}</dd>
+  <dd>{% if node.description %} {{node.description}} {% endif %}  <small style="color:#999; font-weight:normal;">{{ node.date | date:"%Y-%m-%d" }}</small> </dd>
  {% endif %}
  {% endif %}
 {% endfor %}

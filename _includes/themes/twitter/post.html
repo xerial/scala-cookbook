@@ -1,18 +1,19 @@
 <div class="page-header">
   {% assign tags_list = page.tags %}
-  <h1>{{ page.title }} <small>{{ page.description }} 
+  <h1>{{ page.title }} <small>{{ page.description }} </small>
   {% for tag in tags_list %}
 <a class="label label-info" href="{{ BASE_PATH }}/tags.html#{{ page.tags[0] }}-ref">{{ page.tags }}</a> 
   {% endfor %}
-</small> </h1>
+  <small class="pull-right">Published {{ page.date | date_to_long_string }}</small>
+  </h1>
 </div>
 
 <div class="row">
-  <div class="span8">
+  <div class="span12">
     {{ content }}
     <hr>
     <div class="pagination">
-      <ul>
+      <ul style="white-space:nowrap;">
       {% if page.previous %}
         <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Previous</a></li>
       {% else %}
@@ -27,18 +28,5 @@
       </ul>
     </div>
     <hr>
-    {% include JB/comments %}
-  </div>
-  
-  <div class="span4">
-    <h4>Published</h4>
-    <div class="date"><span>{{ page.date | date_to_long_string }}</span></div>
-
-  {% unless page.tags == empty %}
-    <h4>Tags</h4>
-    <ul class="tag_box">
-    {% include JB/tags_list %}
-    </ul>
-  {% endunless %}  
   </div>
 </div>
