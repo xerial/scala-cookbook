@@ -18,7 +18,5 @@ Scalaでのプログラミングについて紹介していきます。
 
 ## 参考資料
 
-* [Scalaを自分で学ぶための資料](resources.html)
 * [ぜひ身につけてほしい計算機のスキル](skills.html)
 * [なぜScalaを学ぶのか](why-learning-scala.html)
-* [Scalaの文法](cheetsheet.html)

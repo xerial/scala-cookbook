@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About 
-tagline: About This Site
+title: About Scala Cookbook
+tagline: 
 disquss: false
 ---
 {% include JB/setup %}
