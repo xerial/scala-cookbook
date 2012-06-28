@@ -14,10 +14,11 @@ Scalaには列挙型として[Enumeration](http://www.scala-lang.org/api/current
  * 値にメソッドを定義できない
  * DNAというEnumerationを定義しても、個々の値は、DNA.Value型として扱わなければならないため、コードが不自然になる。
 
+### Enumerationを使ったコード例
 
 	object DNA extends Enumeration {
-	   val A, C, G, T, N = Value
-    }
+		val A, C, G, T, N = Value
+	}
 	
 	val base : DNA.Value = DNA.A
  
