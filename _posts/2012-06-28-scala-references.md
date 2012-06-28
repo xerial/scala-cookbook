@@ -22,6 +22,7 @@ Scalaの開発者(Martin Odersky)らによる参考書。おそらくこれが�
 ## Computer Sciences
 
 * [Purely Functional Data Structures](http://www.cs.cmu.edu/~rwh/theses/okasaki.pdf) by Chris Okasaki
+  * [Amazon.com](http://www.amazon.co.jp/Purely-Functional-Structures-Chris-Okasaki/dp/0521663504), [Google Books](http://books.google.co.jp/books?id=SxPzSTcTalAC&dq=%22Purely+Functional+Data+Structures%22&printsec=frontcover&source=bn&hl=ja&ei=xCc2S_2uDcGHkQX--_mDCQ&sa=X&oi=book_result&ct=result&resnum=4&ved=0CCQQ6AEwAw#v=onepage&q&f=false)
   * 関数型言語でimmutableで性能の良いデータ構造をどうデザインするか
   * Listなど、同等の実装がScalaでも使われている
   * Amortized complexity (償却計算量) の考え方が基本
