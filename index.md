@@ -9,6 +9,7 @@ disqus: false
 Scala Cookbook [http://xerial.org/scala-cookbook](http://xerial.org/scala-cookbook) では、Scalaでのプログラミングについて紹介していきます。
 
 * [Scala勉強会の予定](schedule.html) - 日程、今後紹介する内容など
+* [Scala Cookbookに寄稿、改善に協力する](contribute.html)  レシピの追加、修正等を歓迎します。
 
 ## Recent Updates
 {% include recent_posts.html %}
