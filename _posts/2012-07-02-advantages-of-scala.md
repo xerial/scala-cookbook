@@ -77,7 +77,7 @@ ScalaはJavaと同様JVMの上で動く言語であるが、オブジェクト�
 	// Javaでは以下のように書かなければならなかった
 	String.format("Hello %s", "World")
 
-* Java言語のリリース頻度は、使っているユーザー数が多いために慎重になっている成果、とても遅い。新しいリリースを待つくらいならScalaでコードを書き始める方が良い
+* Java言語のリリース頻度は、使っているユーザー数が多いために慎重になっているためか、非常に遅い。新しいリリースを待つくらいならScalaでコードを書き始める方が良い
 * 例えば以下のような機能が待望されているが、Javaで使えるようになるのがいつになるか
   * コードブロック (clojure, lambda function)
   * try catch with resources (Scalaなら[loan pattern]({{BASE_PATH}}/recipes/2012/06/27/loan-pattern)を自分で実装すればよい)
@@ -93,10 +93,11 @@ Covarianceの例 (List[Banana], List[Apple]はList[Fruit]のsubtypeとして扱�
 	trait Fruit
 	class Apple extends Fruit
 	class Banana extends Fruit
+	// ListはList[+A] (covariance)として定義されている
 	val l : List[Fruit] = List[Banana](new Banana, new Banana) ++ List[Apple](new Apple)
 
 
-* 関数に渡す関数の型なども、covariance, contravarianceのおかげで汎用的になり、コードの再利用性が高まっている
+* 関数に渡す関数の型なども、covariance, contravarianceのおかげで汎用的になり、コードの再利用性が高まっている. `Function2[-A, +B]`など。
 * Checked exceptionの廃止
    * Javaでは`method(..) throws xxException`という形でexceptionの型までメソッドに指定しなくてはならないために、汎用的なライブラリを書く障害になっていた。例えば同じようなコードを再利用できる場所でも、DBException, IOExceptionなど内部で発生する例外の型が違うために、APIでは親クラスのthrows Exceptionを使うように設計しなくてはならず、APIを使う側では何のエラーだかわからないExceptionをcatchするコードを大量に書く必要があった。Scalaでは、throws ... と書かなくても良くなり、programのmain関数内など、必要最低限の位置で例外をcatchすれば良いようになっている。
 
