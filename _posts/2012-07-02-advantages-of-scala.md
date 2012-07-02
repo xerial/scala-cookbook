@@ -78,7 +78,7 @@ ScalaはJavaと同様JVMの上で動く言語であるが、オブジェクト�
 	String.format("Hello %s", "World")
 
 * Java言語のリリース頻度は、使っているユーザー数が多いために慎重になっているためか、非常に遅い。新しいリリースを待つくらいならScalaでコードを書き始める方が良い
-* 例えば以下のような機能が待望されているが、Javaで使えるようになるのがいつになるか
+* 例えば以下のような機能が待望されているが、Javaで使えるようになるのがいつになることやら…
   * コードブロック (clojure, lambda function)
   * try catch with resources (Scalaなら[loan pattern]({{BASE_PATH}}/recipes/2012/06/27/loan-pattern)を自分で実装すればよい)
   * traitによるmixin(多重継承の特殊なケース)の実現  
@@ -105,7 +105,7 @@ Covarianceの例 (List[Banana], List[Apple]はList[Fruit]のsubtypeとして扱�
    * [パターンマッチ](http://www.artima.com/scalazine/articles/pattern_matching.html)が実装されているおかげで、[Visitorパターン](http://en.wikipedia.org/wiki/Visitor_pattern)をもう書かなくてもいいと思うだけでありがたい。
 
 * Type erasureへの対応
-  * Scalaのクラスファイルには、実は詳細な型情報を記したsignatureが埋め込まれており、JVMでtype erasureにより実行時に失われてしまうような型情報も、Scalaでは実行時に取り出すことができる（ただしScalaのクラスに限る）
+  * Scalaのクラスファイルには、実は詳細な型情報を記したsignatureが埋め込まれており、JVMでtype erasureにより実行時に失われてしまうような型情報も、Scalaでは実行時に取り出すことができる（ただしScalaで書かれたクラスに限る）
 
 ### Scalaの言語デザインについてためになる記事
 
