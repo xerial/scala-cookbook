@@ -27,7 +27,7 @@ Scalaのコンパイル、テストの実行にはsbt (Simple Build Tool) (全�
 GitHub [https://github.com/xerial/scala-cookbook/tree/min-project](https://github.com/xerial/scala-cookbook/tree/min-project) にすぐScalaの開発を始めるためのコードサンプルが置いてあります。
 
 	# min-projectブランチをmyprojectフォルダ内に取得
-	$ git clone git://github.com/xerial/scala-cookbook -b min-project myproject
+	$ git clone git://github.com/xerial/scala-cookbook.git -b min-project myproject
 	$ cd myproject
 	# プロジェクトに必要なファイルをダウンロード、コンパイル、実行
 	$ bin/sbt run
