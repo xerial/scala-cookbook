@@ -9,11 +9,10 @@ tags: [introduction]
 
 ## コーディングのスタイル
 * コードを逐次実行しながら副作用（変数の内容の書き換え）を起こす[命令型 (imperative programming)](http://en.wikipedia.org/wiki/Imperative_programming)のコードをなるべく排除する
-* 副作用を避けるために
-  * **immutable**（変更不可能）なデータを中心に使う
+* 副作用を避けるために **immutable**（変更不可能）なデータを中心に使う
   * 値の変化は、関数に「immutableなデータを入力 -> 新しいデータを出力」という形で行う
 * 関数そのものも、関数の引数として渡す
-  * 関数がfirst-class citizen、という言い方をよくする
+  * 関数がfirst-class citizenという言い方をよくする
   * C++、Javaでも関数に関数へのポインタ（リファレンス）などを渡せるが、関数が定義されたコンテキストの情報（変数の値など）までも含めて他の関数に渡すのは大変。
 
 ## **Q**. 副作用を避けるのは何故か？ 
@@ -100,6 +99,14 @@ Javaで安全にクラスの初期化を行えるようにするには以下の�
 Scalaでは、immutableなデータを好んで使ってもらえるよう配慮されており、以下の一行で済む。
 
 	class Book(id:Int, title:String, publisher:String) 
+
+より安全にするには、nullかどうかのチェックも入れると良い。
+
+	class Book(id:Int, title:String, publisher:String) {
+		// クラスの初期化時に実行されるコード
+		if(title == null || publisher == null)
+			sys.error("null is passed as an argument")
+	}
 
 ### 補足
 
