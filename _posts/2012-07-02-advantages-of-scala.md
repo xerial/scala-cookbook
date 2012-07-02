@@ -33,7 +33,7 @@ C++, Java、Perlなど命令型のコードが多い言語に慣れていると�
 
 	val m : Map[Int, String] = 
 		Map.apply[Int, String](Seq[Tuple2[Int, String]]
-		(Tuple2[Int, String](1, "A"), Tuple2[Int, String](2, "B"), Tuple2[Int, String](3, "C"))
+		(new Tuple2[Int, String](1, "A"), new Tuple2[Int, String](2, "B"), new Tuple2[Int, String](3, "C"))
 	// 型名をすべて補って書き下すと...
 	m.foreach[Tuple2[Int, String]]{ (entry:Tuple2[Int, String])  => 
 	   entry match {
