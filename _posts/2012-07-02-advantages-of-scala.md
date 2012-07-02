@@ -109,7 +109,7 @@ Covarianceの例 (List[Banana], List[Apple]はList[Fruit]のsubtypeとして扱�
 
 ### Scalaの言語デザインについてためになる記事
 
-Scalaを作ったMartin Odersky氏への以下のインタビュー記事を読むと、なぜScalaの言語が今のようなデザインになっているのかがよくわかる。妥協もあり、積極的に関数型言語、オブジェクト指向言語の融合をはかった部分もあり。
+Scalaを作ったMartin Odersky氏への以下のインタビュー記事を読むと、なぜScalaの言語が今のようなデザインになっているのかがよくわかる。妥協もあり、積極的に関数型言語、オブジェクト指向言語の融合をはかった部分もあり。Javaの不便を乗り越えるとともに関数型言語の良い面を取り入れるため最大限の努力をしている様子が伺える。
 
 * [The Origins of Scala - A Conversation with Martin Odersky](http://www.artima.com/scalazine/articles/origins_of_scala.html)
 * [The Goals of Scala's Design - A Conversation with Martin Odersky](http://www.artima.com/scalazine/articles/goals_of_scala.html)
