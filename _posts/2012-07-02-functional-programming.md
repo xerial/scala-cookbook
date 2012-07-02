@@ -50,9 +50,8 @@ Stringをimmutableにすればよい。
 
 immutableにすることで、上記のようなことで悩む必要はなくなる。実際、
 Scala/JavaのStringはimmutableになっている。また、SortedSet などの実装はimmutableなデータが格納されることを前提にしており、
-性能のためにデータのコピーを避け、文字列へのリファレンスのみを格納して
-いる。parallel/concurrent programmingにおいても、StringやSortedSetの内容が
-immutableであることが保証されていると、ロックなどを取得する必要がなく、
+性能のためにデータのコピーを避け、文字列へのリファレンスのみを格納している。
+parallel/concurrent programmingにおいても、StringやSortedSetの内容がimmutableであることが保証されていると、ロックなどを取得する必要がなく、
 コードの性能も良くなる上、コードの実行の度に動作が違うバグなどに悩まされなくなる。
 
 ## immutableなデータを使い、初期化忘れを防ぐ
