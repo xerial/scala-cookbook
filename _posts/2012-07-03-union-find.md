@@ -24,31 +24,8 @@ g1, g3は直接交差はしていないが、各々g2と交差しているので
 
 ## 考え方
 
-### 区間の交差判定
-
-区間を表現するクラスを作成。
-
-	class Interval(val start:Int, val end:Int)
-
-	object Interval {
-		// Interval(s, e) でinstanceを作成できるようにするhelper method
-		def apply(start:Int, end:Int) = new Interval(start, end)
-	}
-
-区間に順序を定義する。[scala.math.Ordering](http://www.scala-lang.org/api/current/scala/math/Ordering.html) を使用。
-	
-	object IntervalOrdering extends Ordering[Interval] {
-		def compare(x:Interval, y:Interval) : Int = {
-			// startの小さい順に並べる
-			val diff = x.start - y.start
-			if(diff == 0)
-				x.end - y.end  // startが同じならendの小さい順に並べる
-			else
-				diff
-		}
-	}
-	
-区間を上の順序を使って並べ替え、左端からsweepする。
+区間の交差判定については、[こちら]({{BASE_PATH}}/recipes/2012/07/03/interval-sweep/)を参考に。
+区間を並べ替え、左端からsweepしながら交差しているものを列挙すれば良い。
 
 ### グループの作成
 

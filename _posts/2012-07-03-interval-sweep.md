@@ -66,6 +66,8 @@ sweepする際にはstartだけでなく、endの情報もpriority queue(優先�
 
 ## コード例
 
+[OverlapSweeper.scala](https://github.com/xerial/genome-weaver/blob/fba37256f6d372993989cc8e77bfab02a6700ae7/lens/src/main/scala/utgenome/weaver/lens/OverlapSweeper.scala)
+
     import collection.{mutable, SortedSet}
     import annotation.tailrec
 
