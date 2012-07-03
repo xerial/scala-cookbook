@@ -63,7 +63,6 @@ tags: [algorithms]
 その後、左端(startの小さい順)からsweepする。
 sweepする際にはstartだけでなく、endの情報もpriority queue(優先度付きキュー)に入れて管理する。
 
-hello
 
 ## コード例
 
@@ -100,7 +99,7 @@ hello
               endValueQueue.dequeue
             }
             if(endValueQueue.size > 1)
-               Some(endValueQueue.clone.toSeq)
+               Some(endValueQueue.clone.toSeq) // queueの中身はmutableなので敢えてコピーを作成
             else
               findNextOverlap
           }
@@ -121,33 +120,18 @@ hello
       }
     }
 
-
-
-
 ## 動作をテストする
 
-hello
-
-    class OverlapSweeperTest extends SilkSpec {
-      "OverlapSweeper" should {
-        "report all overlapped intervals" in {
-          // 1  2      5  6 7  8      10   12 13 14 15 16
-          // |---------|              |----|  |-----|
-          //    |-----------|         |----|      |-----|
-          //              |---|
-          val in = List(Interval(1, 5), Interval(2, 7), Interval(6,8), Interval(10, 12), Interval(10, 12), Interval(13, 15), Interval(14, 16))
-		  val sorted = in.sorted(IntervalOrdering)
-          val overlapped = new OverlapSweeper(sorted)
-          for(s <- overlapped) {
-    		// overlapしていると報告された区間のすべての組み合わせをチェック(combination)
-            for(c <- s.combinations(2)) {
-              val a = c(0)
-              val b = c(1)
-              info("{%s, %s}", a, b)
-              a.intersectWith(b) should be (true)
-            }
-          }
-        }
+    val in = List(Interval(1, 5), Interval(2, 7), Interval(6,8), 
+	  Interval(10, 12), Interval(10, 12), Interval(13, 15), Interval(14, 16))
+    val sorted = in.sorted(IntervalOrdering)
+    val overlapped = new OverlapSweeper(sorted)
+    for(s <- overlapped) {
+      // overlapしていると報告された区間のすべての組み合わせをチェック(combination)
+      for(c <- s.combinations(2)) {
+         val a = c(0)
+         val b = c(1)
+         a.intersectWith(b) should be (true)
       }
     }
 
@@ -175,5 +159,8 @@ hello
 ### リードセットがメモリに収まりきらない場合
 
 染色体名を覚えておき、異なる染色体のリードが入力されたら、queueにたまっているものをすべてsweepする。
+
+
+
 
 

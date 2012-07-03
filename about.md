@@ -13,3 +13,4 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
 
 * [Scala Cookbookに寄稿、改善に協力する](contribute.html)  レシピの追加、修正等を歓迎します。
 
+
