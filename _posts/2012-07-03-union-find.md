@@ -10,7 +10,7 @@ tags: [algorithms]
 ## 問題
 
 遺伝子のデータにはゲノム座標中で交差しているアノテーションが含まれている（splicing variant, 転写開始位置の違いなどによる）。
-遺伝子情報に基づく解析を行う際、重複を避けるため、このような遺伝子はひとまとまりにして考えたい。
+遺伝子情報に基づく解析を行う際、重複を避けるためこのような遺伝子はひとまとまりにして考えたい。
 
 	|----(g1)-------|                 |---(g4)----|     |----(g6)-----|
 	  |-----(g2)----------|                         |---(g5)---|
@@ -62,39 +62,29 @@ n個の要素をグループに分類する問題として考える。
 
 互いに疎な集合を手軽に構築するデータ構造として、[Union-Find](http://en.wikipedia.org/wiki/Disjoint-set_data_structure)が使える。
 
+### 参考文献
+
+* Introduction to Algorithms 2nd Edition. Chapter21: Data Structures for Disjoint Sets
+
 ### コード例
 [UnionFindSet.scala](https://github.com/xerial/silk/blob/develop/src/main/scala/xerial/silk/util/UnionFindSet.scala)より抜粋
 
-    /**
-     * Union-find based disjoint set implementation.
-     *
-     * Reference: http://enwikipeida.org/wiki/Disjoint-set_data_structure
-     *
-     * @author leo
-     *
-     */
+ノードを順次`+=`で追加できるように設計。
+
     class UnionFindSet[E] { 
     
       /**
        * Holder of the element with its rank and the parent node
-       * @param elem
-       * @param parent
-       * @param rank
        */
       private class Container(val elem: E, var parent: E, var rank: Int) {
         def isRoot : Boolean = elem == parent
       }
-    
       /**
        * Hold a map from elements to their containers
        */
       private val elemToContainerIndex = collection.mutable.Map[E, Container]()
-    
-    
       /**
        * Retrieve the container of the element e
-       * @param e
-       * @return container of e
        */
       private def containerOf(e: E): Container = {
         def newContainer = new Container(e, e, 0) // Set the parent to this element
@@ -111,11 +101,11 @@ n個の要素をグループに分類する問題として考える。
         containerOf(e) // create a new containerOf for e if it does not exist
         this
       }
-    
+
+`find`でグループの代表元(root)を求める。同じ集合に属するノードは、ツリーで管理されているが、ルートまでのパス中のノードを同時にルートに直結させている(path compression).
+
       /**
        * Find the representative (root) element of the class to which e belongs
-       * @param e
-       * @return
        */
       def find(e: E) : E = {
         val c = containerOf(e)
@@ -128,11 +118,11 @@ n個の要素をグループに分類する問題として考える。
           c.parent
         }
       }
-    
+
+`union(x, y)`ではx, yの代表元を求めてそれを結合することで、2つの集合の結合を行う。
+
       /**
        * Union the two sets containing x and y
-       * @param x
-       * @param y
        */
       def union(x: E, y: E) {
         val xRoot = containerOf(find(x))
@@ -152,10 +142,38 @@ n個の要素をグループに分類する問題として考える。
         }
       }
     
+
+### Union-Findをさらに使いやすくする
+
+Setを拡張し、iterator、要素数などを取得できるように。
+
+	class UnionFindSet[E] extends collection.mutable.Set[E] {
+	   (中略)
+       private def containerList = elemToContainerIndex.values
+	   override def size = elemToContainerIndex.size
+	   def contains(e: E) = elemToContainerIndex.contains(e)
+	   /**
+	    * Iterator of the elements contained in this set
+	    * @return
+		*/
+	   def iterator = containerList.map(_.elem).toIterator
+
+さらに、代表元のみを探索、あるノードと同じグループに属するノード集合、グループを探索するためのiteratorなどを定義。
+		
+    /**
+     * Iterator of the root nodes of the groups
+     */
+    def representatives: Iterable[E] =
+      for(c <- containerList if c.isRoot) yield c.elem
+    /**
+     * Return the elements belonging to the same group with e
+     */
+    def elementsInTheSameClass(e: E) : Iterable[E] = {
+      val root = containerOf(find(e))
+      for(c <- containerList if find(c.elem) == root.elem) yield c.elem
     }
-
-
-## 参考文献
-
-* Introduction to Algorithms 2nd Edition. Chapter21: Data Structures for Disjoint Sets
-
+    /**
+     * Iterator of each group
+     */
+    def groups: Iterable[Iterable[E]] =
+      for (r <- representatives) yield elementsInTheSameClass(r)
