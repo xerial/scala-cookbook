@@ -69,5 +69,13 @@ Scalaでは集合を並び替えた順列(permutation)や、組み合わせ（co
     scala> powerSet(l.toSet)
     res5: scala.collection.immutable.Set[scala.collection.immutable.Set[java.lang.String]] = Set(Set(A, D), Set(), Set(A, B), Set(B, C), Set(B), Set(A, B, C), Set(C), Set(A, B, C, D), Set(C, D), Set(A, C), Set(B, C, D), Set(A, C, D), Set(B, D), Set(A), Set(D), Set(A, B, D))
 
+生成の様子を表示すると以下のようになる。
+
+	step 1. Set(Set())
+	step 2. Set(Set(), Set(A))
+	step 3. Set(Set(), Set(A), Set(B), Set(A, B))
+	step 4. Set(Set(), Set(A, B), Set(B, C), Set(B), Set(A, B, C), Set(C), Set(A, C), Set(A))
+	step 5. Set(Set(A, D), Set(), Set(A, B), Set(B, C), Set(B), Set(A, B, C), Set(C), Set(A, B, C, D), Set(C, D), Set(A, C), Set(B, C, D), Set(A, C, D), Set(B, D), Set(A), Set(D), Set(A, B, D))
+
 * 参考：[Scala Expressiveness](http://thinkmeta.wordpress.com/2010/06/28/scala-expressiveness/)
 
