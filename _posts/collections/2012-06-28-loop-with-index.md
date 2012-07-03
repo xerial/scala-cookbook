@@ -3,7 +3,7 @@ layout: post
 title: "インデックス付きのループ"
 description: "zipWithIndex"
 category: recipes
-tags: [collection]
+tags: [collections]
 ---
 {% include JB/setup %}
 

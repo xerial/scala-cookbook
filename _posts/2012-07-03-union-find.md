@@ -3,7 +3,7 @@ layout: post
 title: "Union Find"
 description: "データを互いに疎なグループ(disjoint sets)に分ける"
 category: recipes
-tags: [algorithm]
+tags: [algorithms]
 ---
 {% include JB/setup %}
 
@@ -48,8 +48,7 @@ g1, g3は直接交差はしていないが、各々g2と交差しているので
 		}
 	}
 	
-	
-
+区間を上の順序を使って並べ替え、左端からsweepする。
 
 ### グループの作成
 
@@ -58,11 +57,13 @@ n個の要素をグループに分類する問題として考える。
 * find(e): 要素eがどのグループに属するかを見つける（グループの代表元を返す）
 * union(e1, e1): 要素e1と要素e2が含まれるグループを結合する
 
+
 ## Union-Find 
 
+互いに疎な集合を手軽に構築するデータ構造として、[Union-Find](http://en.wikipedia.org/wiki/Disjoint-set_data_structure)が使える。
 
-
-[UnionFindSet.scala](https://github.com/xerial/silk/blob/develop/src/main/scala/xerial/silk/util/UnionFindSet.scala)
+### コード例
+[UnionFindSet.scala](https://github.com/xerial/silk/blob/develop/src/main/scala/xerial/silk/util/UnionFindSet.scala)より抜粋
 
     /**
      * Union-find based disjoint set implementation.
@@ -72,7 +73,7 @@ n個の要素をグループに分類する問題として考える。
      * @author leo
      *
      */
-    class UnionFindSet[E] extends collection.mutable.Set[E] {
+    class UnionFindSet[E] { 
     
       /**
        * Holder of the element with its rank and the parent node
@@ -111,10 +112,6 @@ n個の要素をグループに分類する問題として考える。
         this
       }
     
-      def -=(e: E): this.type = {
-        throw new UnsupportedOperationException("removal")
-      }
-    
       /**
        * Find the representative (root) element of the class to which e belongs
        * @param e
@@ -125,7 +122,8 @@ n個の要素をグループに分類する問題として考える。
         if(c.isRoot)
           e
         else {
-          // path compression: the parent of e
+          // path compression: recursively connect all elements 
+		  // in the path from e to the root directly to the root
           c.parent = find(c.parent)
           c.parent
         }
@@ -137,7 +135,6 @@ n個の要素をグループに分類する問題として考える。
        * @param y
        */
       def union(x: E, y: E) {
-    
         val xRoot = containerOf(find(x))
         val yRoot = containerOf(find(y))
     
@@ -154,43 +151,6 @@ n個の要素をグループに分類する問題として考える。
             yRoot.rank += 1
         }
       }
-    
-      private def containerList = elemToContainerIndex.values
-    
-      override def size = elemToContainerIndex.size
-    
-      def contains(e: E) = elemToContainerIndex.contains(e)
-    
-      /**
-       * Iterator of the elements contained in this set
-       * @return
-       */
-      def iterator = containerList.map(_.elem).toIterator
-    
-      /**
-       * Iterator of the root nodes of the groups
-       * @return
-       */
-      def representatives: Iterable[E] =
-        for(c <- containerList if c.isRoot) yield c.elem
-    
-    
-      /**
-       * Return the elements belonging to the same group with e
-       * @param e
-       * @return
-       */
-      def elementsInTheSameClass(e: E) : Iterable[E] = {
-        val root = containerOf(find(e))
-        for(c <- containerList if find(c.elem) == root.elem) yield c.elem
-      }
-    
-      /**
-       * Iterator of each group
-       * @return
-       */
-      def groups: Iterable[Iterable[E]] =
-        for (r <- representatives) yield elementsInTheSameClass(r)
     
     }
 

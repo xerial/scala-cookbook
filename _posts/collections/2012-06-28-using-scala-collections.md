@@ -3,7 +3,7 @@ layout: post
 title: "Scalaのコレクションを使う"
 description: "基本的なデータ構造の使い方"
 category: recipes
-tags: [collection]
+tags: [collections]
 ---
 {% include JB/setup %}
 

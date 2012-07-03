@@ -1,9 +1,11 @@
 
 <div class="row-fluid">
 {% for tag in site.tags %} 
-<div id="{{ tag[0] }}-ref" class="category">
+
+<div>
 <div class="span6">
-<h3  style="text-transform:capitalize;">{{ tag[0] }}</h3>
+<div id="{{ tag[0] }}-ref" class="category">
+<h3 style="text-transform:capitalize;">{{ tag[0] }}</h3>
 <div class="well">
 <dl>
 {% assign pages_list = tag[1] %}  
@@ -17,10 +19,10 @@
 {% endfor %}
 </dl>
 </div> <!-- well -->
-</div> <!-- span6 -->
-
-
 </div> <!-- category -->
+</div> <!-- span6 -->
+</div>
+
 {% endfor %}
 </div> <!-- row-fluid -->
 
