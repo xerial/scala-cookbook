@@ -1,8 +1,8 @@
 
-<div class="row-fluid">
-{% for tag in site.tags %} 
 
-<div>
+{% for tag in site.tags %} 
+{% capture thecycle %}{% cycle '1', '2' %}{% endcapture %}
+{% if thecycle == '1' %}<div class="row-fluid">{% endif %}
 <div class="span6">
 <div id="{{ tag[0] }}-ref" class="category">
 <h3 style="text-transform:capitalize;">{{ tag[0] }}</h3>
@@ -21,9 +21,8 @@
 </div> <!-- well -->
 </div> <!-- category -->
 </div> <!-- span6 -->
-</div>
-
+{% if thecycle == '2' or forloop.last %}</div>{% endif %}
 {% endfor %}
-</div> <!-- row-fluid -->
+
 
  
