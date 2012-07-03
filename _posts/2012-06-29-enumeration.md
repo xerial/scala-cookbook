@@ -51,7 +51,9 @@ DNAの塩基を表すコード。[genome-weaverのDNA.scala](https://github.com/
 	}
 	
 	// sealedを付けると、DNAを拡張したクラスはこのファイル内でしか定義できない
-	sealed class DNA(val name:String, val code:Int) {
+	// abstractを付けると、DNAを拡張したクラスはA, C, G, T, N以外にないことを保証できるので
+	// match文がexhaustive(すべてのケースを網羅)になる
+	sealed abstrat class DNA(val name:String, val code:Int) {
 		override def toString = name
 		// DNAクラスには自由にメソッドを定義できる
 		def complement = DNA.complement(code)
