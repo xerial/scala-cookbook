@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Union Find"
-description: "データを互いに疎なグループ(disjoint sets)に分ける"
+description: "データを互いに疎なグループ(disjoint sets)に分類する"
 category: recipes
 tags: [algorithms]
 ---
