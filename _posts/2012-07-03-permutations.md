@@ -7,7 +7,7 @@ tags: [collections]
 ---
 {% include JB/setup %}
 
-Scalaでは集合の並び替えた順列(permutation)や、要素の組み合わせ（combination, 重複を含まない）、冪集合(power set)などを手軽に生成できる。
+Scalaでは集合を並び替えた順列(permutation)や、組み合わせ（combination, 重複を含まない）、冪集合(power set)などを手軽に生成できる。
 
 ## 順列の生成
 
