@@ -10,8 +10,8 @@
 {% for node in pages_list %}
  {% if node.title != null and node.category == "recipes" %}
  {% if group == null or group == node.group %}
- <dt><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a> </dt>
- <dd> {% if node.description %} {{node.description}} {% endif %} <small style="color:#999; font-weight:normal;">{{ node.date | date:"%Y-%m-%d" }}</small></dd>
+ <dt><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a> <small style="color:#999; font-weight:normal;">{{ node.date | date:"%Y-%m-%d" }}</small></dt>
+ <dd> {% if node.description %} {{node.description}} {% endif %} </dd>
  {% endif %}
  {% endif %}
 {% endfor %}
