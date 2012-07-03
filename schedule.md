@@ -83,6 +83,8 @@ disquss: false
    * グラフ(連結リスト)とその探索
    * Union Findで同値類をまとめる
    * 区間の交差判定
+   * BFS, DFS
+   * 木構造の表現
 
 * **Lesson** グラフの作成
    * jfreechart + iTextで、PDFチャートを作成
