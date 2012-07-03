@@ -152,8 +152,8 @@ sweepする際にはstartだけでなく、endの情報もpriority queue(優先�
     val l : List[GInterval] = ...
     val groups = l.groupBy(_.chr) 
 	// parllel collectionで染色体ごとに並列処理
-	for((chr, lst) <- groups.par; overlappedReadSet <- lst) {
-		...
+	for((chr, lst) <- groups.par; overlappedReadSet <- new OverlapSweeper(lst)) {
+	    ...
 	}
   
 ### リードセットがメモリに収まりきらない場合
