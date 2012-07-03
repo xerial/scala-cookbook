@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "順列、組み合わせ、冪集合の生成"
-description: "permutations, combinations, power set"
+title: "順列、組み合わせ、冪集合を生成する"
+description: 
 category: recipes
 tags: [collections]
 ---
