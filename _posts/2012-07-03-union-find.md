@@ -44,7 +44,7 @@ n個の要素をグループに分類する問題として考える。
 * Introduction to Algorithms 2nd Edition. Chapter21: Data Structures for Disjoint Sets
 
 ### コード例
-[UnionFindSet.scala](https://github.com/xerial/silk/blob/develop/src/main/scala/xerial/silk/util/UnionFindSet.scala)より抜粋
+[UnionFindSet.scala](https://github.com/xerial/silk/blob/4f06b307c0a873b529446cc3ca6b1fa261f985d0/src/main/scala/xerial/silk/util/UnionFindSet.scala)より抜粋
 
 ノードを順次`+=`で追加できるように設計。
 
