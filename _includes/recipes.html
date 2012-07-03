@@ -1,1 +1,27 @@
-<div class="content"><div class="row">{% for tag in site.tags %} <div id="{{ tag[0] }}">  <div class="span6">  <h3  style="text-transform:capitalize;">{{ tag[0] }}</h3>  <div class="well">  <dl>{% assign pages_list = tag[1] %}  {% for node in pages_list %} {% if node.title != null and node.category == "recipes" %} {% if group == null or group == node.group %}  <dt>    <a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a>    <small style="color:#999; font-weight:normal;">{{ node.date | date:"%Y-%m-%d" }}</small>  </dt>  <dd>{% if node.description %} {{node.description}} {% endif %}</dd> {% endif %} {% endif %}{% endfor %}  </dl>  </div> <!-- well -->  </div></div>{% endfor %}</div></div>
+
+<div class="row-fluid">
+{% for tag in site.tags %} 
+<div id="{{ tag[0] }}-ref" class="category">
+<div class="span6">
+<h3  style="text-transform:capitalize;">{{ tag[0] }}</h3>
+<div class="well">
+<dl>
+{% assign pages_list = tag[1] %}  
+{% for node in pages_list %}
+ {% if node.title != null and node.category == "recipes" %}
+ {% if group == null or group == node.group %}
+ <dt><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a> </dt>
+ <dd> {% if node.description %} {{node.description}} {% endif %} <small style="color:#999; font-weight:normal;">{{ node.date | date:"%Y-%m-%d" }}</small></dd>
+ {% endif %}
+ {% endif %}
+{% endfor %}
+</dl>
+</div> <!-- well -->
+</div> <!-- span6 -->
+
+
+</div> <!-- category -->
+{% endfor %}
+</div> <!-- row-fluid -->
+
+ 
