@@ -22,7 +22,7 @@ Scalaには列挙型として[Enumeration](http://www.scala-lang.org/api/current
 	
 	val base : DNA.Value = DNA.A
  
-また、DNA.Value型を拡張することが許されていないので、ラベルとしての機能しか持たせることができない。
+ここでDNA.Value型を拡張することが許されていないので、ラベルとしての機能しか持たせることができない。
 
 ## 解決策
 
@@ -66,6 +66,8 @@ DNAの塩基を表すコード。[genome-weaverのDNA.scala](https://github.com/
 	l match {
 	  case DNA.A => ...
 	  case DNA.C => ...
-	  case _ => ..
+	  case DNA.G => ...
+	  case DNA.T => ...
+	  case DNA.N => ...
 	}
  
