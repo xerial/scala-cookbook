@@ -11,3 +11,5 @@ C++/Javaなどは授業で習う機会が多いようですが、Scalaなど比�
 
 文章の修正、追加等はgithubの[pull request](https://help.github.com/articles/using-pull-requests)でお願いします。Scala Cookbookのソースコードは[こちら](https://github.com/xerial/scala-cookbook/tree/gh-pages)。 (gh-pagesブランチで更新管理されています)
 
+* [Scala Cookbookに寄稿、改善に協力する](contribute.html)  レシピの追加、修正等を歓迎します。
+
