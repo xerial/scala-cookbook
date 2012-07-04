@@ -3,7 +3,7 @@
 {% for tag in site.tags %} 
 {% capture thecycle %}{% cycle '1', '2' %}{% endcapture %}
 {% if thecycle == '1' %}<div class="row-fluid">{% endif %}
-<div class="span6">
+<div class="span5">
 <div id="{{ tag[0] }}-ref" class="category">
 <h3 style="text-transform:capitalize;">{{ tag[0] }}</h3>
 <div class="well">

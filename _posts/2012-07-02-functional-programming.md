@@ -59,7 +59,7 @@ parallel/concurrent programmingにおいても、StringやSortedSetの内容がi
 
 Scalaではclassでデータ構造を作成する際も、パラメータはすべてimmutableにし、初期化を必ず行うように強制できる。
 
-    class Book(id:Int, title:String, publisher:String) 
+    class Book(val id:Int, val title:String, val publisher:String) 
 	
 	val b = new Book(1, "Programming in Scala", "Artima Press")
 
@@ -97,11 +97,11 @@ Javaで安全にクラスの初期化を行えるようにするには以下の�
 
 Scalaでは、immutableなデータを好んで使ってもらえるよう配慮されており、以下の一行で済む。
 
-	class Book(id:Int, title:String, publisher:String) 
+	class Book(val id:Int, val title:String, val publisher:String) 
 
 より安全にするには、nullかどうかのチェックも入れると良い。
 
-	class Book(id:Int, title:String, publisher:String) {
+	class Book(val id:Int, val title:String, val publisher:String) {
 		// クラスの初期化時に実行されるコード
 		if(title == null || publisher == null)
 			sys.error("null is passed as an argument")
