@@ -46,13 +46,20 @@ task :post do
   abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
   title = ENV["title"] || "new-post"
   slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  tag = ENV['tag'] 
+  if tag == nil
+    puts "A tag must be specified: rake post tag=\"...\" title=\"...\""
+    exit -1
+  end
+  tag = tag.gsub("\w", "_")
   begin
     date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
   rescue Exception => e
     puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
     exit -1
   end
-  filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  filename = File.join(CONFIG['posts'], "#{tag}/#{date}-#{slug}.#{CONFIG['post_ext']}")
+  Dir.mkdir(File.dirname(filename)) if !File.exist?(File.dirname(filename))
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
@@ -64,7 +71,7 @@ task :post do
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts 'description: ""'
     post.puts "category: recipes"
-    post.puts "tags: []"
+    post.puts "tags: [#{tag}]"
     post.puts "---"
     post.puts "{% include JB/setup %}"
   end
