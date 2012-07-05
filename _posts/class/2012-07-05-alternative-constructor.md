@@ -3,7 +3,7 @@ layout: post
 title: "コンストラクタを複数定義する"
 description: "代替コンストラクタとfactory"
 category: recipes
-tags: [class]
+tags: [object]
 ---
 {% include JB/setup %}
 
