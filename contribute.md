@@ -37,8 +37,8 @@ Scala Cookbookの[GitHubページ](https://github.com/xerial/scala-cookbook)に�
 
 ## Cookbookレシピの追加
 
-	$ rake post title="(レシピのタイトル)"
-`_posts/2012-06-30-(レシピのタイトル).md`というファイルが作成される。
+	$ rake post title="(レシピのタイトル)" tag="(レシピの分類)"
+`_posts/(レシピの分類)/2012-06-30-(レシピのタイトル).md`というファイルが作成される。
 
 ### ページのヘッダー
 	---
