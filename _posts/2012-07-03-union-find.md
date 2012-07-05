@@ -168,7 +168,7 @@ Setを拡張し、iterator、要素数などを取得できるように。
 
 ## 関連
 
-上記のUnion-Findの実装はimmutableな設計になっている。これをimmutable (persistent)にする実装も提案されている。
+上記のUnion-Findの実装はimmutableな設計にはなっていない。これをimmutable (persistent)にする実装も提案されている。
 
 * Sylvain Conchon and Jean-Christophe Filliatre. 2007. A persistent union-find data structure. In Proceedings of the 2007 workshop on Workshop on ML (ML '07). ACM, New York, NY, USA, 37-46. DOI=10.1145/1292535.1292541 [http://doi.acm.org/10.1145/1292535.1292541](http://doi.acm.org/10.1145/1292535.1292541)
 
