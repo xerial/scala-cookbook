@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "文字列を作成する"
+title: "長い文字列を作成する"
 description: "StringBuilder"
 category: recipes
 tags: [string]
