@@ -45,7 +45,7 @@ desc "Begin a new post in #{CONFIG['posts']}"
 task :post do
   abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
   title = ENV["title"] || "new-post"
-  slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  slug = title.downcase.strip.gsub(' ', '-').gsub(/[^A-Za-z0-9_-]/, '')
   tag = ENV['tag'] 
   if tag == nil
     puts "A tag must be specified: rake post tag=\"...\" title=\"...\""
@@ -58,7 +58,8 @@ task :post do
     puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
     exit -1
   end
-  filename = File.join(CONFIG['posts'], "#{tag}/#{date}-#{slug}.#{CONFIG['post_ext']}")
+  tagfolder = tag.downcase
+  filename = File.join(CONFIG['posts'], "#{tagfolder}/#{date}-#{slug}.#{CONFIG['post_ext']}")
   Dir.mkdir(File.dirname(filename)) if !File.exist?(File.dirname(filename))
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
