@@ -142,3 +142,12 @@ pre,pre.prettyprint {
 .category {
     padding-top: 30px;
 }
+
+
+.cheetsheet code {
+  background: transparent;
+  color: #C66;
+  border:0px;
+}
+
+
