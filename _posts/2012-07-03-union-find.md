@@ -37,7 +37,7 @@ n個の要素をグループに分類する問題として考える。
 
 ## Union-Find 
 
-互いに疎な集合を手軽に構築するデータ構造として、[Union-Find](http://en.wikipedia.org/wiki/Disjoint-set_data_structure)が使える。
+互いに疎な集合を手軽に構築するデータ構造として、[Union-Find](http://en.wikipedia.org/wiki/Disjoint-set_data_structure)が使える。Union-Findは集合を木で表し、union, findの2つの操作を持つデータ構造。
 
 ### 参考文献
 
@@ -96,6 +96,8 @@ n個の要素をグループに分類する問題として考える。
         }
       }
 
+ここで再帰的に通ったノードの親をルートに張り替えるpath compressionが行われている。
+
 `union(x, y)`ではx, yの代表元を求めてそれを結合することで、2つの集合の結合を行う。
 
       /**
@@ -118,7 +120,14 @@ n個の要素をグループに分類する問題として考える。
             yRoot.rank += 1
         }
       }
-    
+
+
+二つの集合を結合するときは、必ずrankの大きい方の下にrankの小さな木を結合するようにする。
+
+### Union-Findの計算量
+
+path compressionと、rankを基準にした木の組み方により、n回のunion, findにかかる計算時間は*O(n A(n))*   A(n)は[アッカーマン関数](http://en.wikipedia.org/wiki/Ackermann_function)の逆関数、になることが知られている。
+
 
 ### Union-Findをさらに使いやすくする
 
@@ -153,4 +162,13 @@ Setを拡張し、iterator、要素数などを取得できるように。
      * Iterator of each group
      */
     def groups: Iterable[Iterable[E]] =
-      for (r <- representatives) yield elementsInTheSameClass(r)
+      for((root, lst) <- containerList.groupBy(find(_.elem))) yield lst
+
+
+
+## 関連
+
+上記のUnion-Findの実装はimmutableな設計になっている。これをimmutable (persistent)にする実装も提案されている。
+
+* Sylvain Conchon and Jean-Christophe Filliatre. 2007. A persistent union-find data structure. In Proceedings of the 2007 workshop on Workshop on ML (ML '07). ACM, New York, NY, USA, 37-46. DOI=10.1145/1292535.1292541 [http://doi.acm.org/10.1145/1292535.1292541](http://doi.acm.org/10.1145/1292535.1292541)
+

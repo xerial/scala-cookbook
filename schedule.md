@@ -42,12 +42,14 @@ disquss: false
      * sweep, priority search tree
 	 * priority queue
 
-* **Lesson**
+* **Lesson** アルゴリズム
 
    * グラフ(連結リスト)とその探索
    * BFS, DFS
    * 木構造の表現
+   * 償却計算量
 
+* **Lesson** 
    * loan pattern
    
    * 特定の要素を見つける (find, exists)
