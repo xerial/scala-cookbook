@@ -9,27 +9,32 @@ tags: [string]
 
 長い文字列を作成する。
 
-## 解法
+## 方法
 
-[StringBuilder](http://www.scala-lang.org/api/current/index.html#scala.collection.mutable.StringBuilder)を使用する。
+短い文字列の場合。
+	
+	val s = "Hello" + " World!!"
+
+文字列をたくさん連結していく場合は、[StringBuilder](http://www.scala-lang.org/api/current/index.html#scala.collection.mutable.StringBuilder)を使用する。
 
 <span class="label success">Good</span>
 
-	val s = { 
-		val b = new StringBuilder
-		b.append("Hello")
-		b.append(" ")
-		b.append("World!")
-		...
-		b.result
-	} // s = "Hello World!"
-	
+	val b = new StringBuilder
+	for(i <- 0 until 10) {
+		if(i > 0)
+			b.append(", ")
+		b.append(i)
+	} 
+	val s = b.result  // s = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9"
 
 <span class="label important">Bad</span>
 
-	var s = "Hello"
-	s += " "            // "Hello " を生成
-	s += "World!"       // "Hello World!"を生成
-	s +=  ...           // さらに文字列のコピーを作成
+	var s = ""
+	for(i <- 0 until 10) {
+		if(i > 0)
+		   s += ", "   // 文字列のコピーを作成
+		s += i　// 文字列のコピーを作成
+	} // s = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9"
 
-+=で文字列を連結していくと、文字列のコピーが大量に発生してしまい性能が悪い。数個の文字列を連結するくらいなら`+=`で問題ないが、何十以上の文字列を連結するのには不向き。
+
++=でStringに対して文字列を連結していくと、文字列のコピーが大量に発生してしまい性能が悪くなる。数個の文字列を連結するくらいなら`+=`でも問題ないが、何十以上の文字列を連結するのには不向き。
