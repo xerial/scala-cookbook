@@ -28,9 +28,12 @@ case class Tree[+A](elem: A, left: Node[A], right: Node[A]) extends Node[A] {
 
 object BinaryTree {
   def empty[A] = new BinaryTree[A](Empty)
+  def apply[A](root:A) = new BinaryTree[A](Tree(root, Empty, Empty))
 }
 
-class BinaryTree[+A](val root: Node[A]) {
+class BinaryTree[A](val root: Node[A]) {
+
+  override def toString = root.toString
 
   private class Finder(target:A, updater: Tree[A] => Node[A]) {
     // (newNode, found flag)
@@ -52,19 +55,19 @@ class BinaryTree[+A](val root: Node[A]) {
   }
 
 
-  private def set(target:A, newChild:A, updater:Tree[A] => Node[A]) : this.type = {
+  private def set(target:A, newChild:A, updater:Tree[A] => Tree[A]) : BinaryTree[A] = {
     val f = new Finder(target, updater)
     val newRoot = f.find(root)
-    newRoot.map(new BinaryTree(_)).getOrElse(this)
+    newRoot.map(r => new BinaryTree(r)).getOrElse(this)
   }
   
   // set left node
-  def setLeft(target: A, newChild: A): this.type =
-    set(target, newChild, { case Tree(e, l, r) => Tree(e, Tree(newChild, Empty, Empty), r)})
+  def setLeft(target: A, newChild: A): BinaryTree[A] =
+    set(target, newChild, { t => Tree(t.elem, Tree(newChild, Empty, Empty), t.right)})
 
 
   // set right node
-  def setRight(target: A, newChild: A): this.type =
-    set(target, newChild, { case Tree(e, l, r) => Tree(e, l, Tree(newChild, Empty, Empty))})
+  def setRight(target: A, newChild: A): BinaryTree[A] =
+    set(target, newChild, { t => Tree(t.elem, t.left, Tree(newChild, Empty, Empty))})
 
 }
