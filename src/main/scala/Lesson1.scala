@@ -97,6 +97,7 @@ object Lesson1 extends Logger {
 
     // fold (Count the average number of exons)
     info("fold")
+
     val (count, sum) = genes.foldLeft((0, 0))((s, gene) => (s._1 + 1, s._2 + gene.exonCount))
     debug("avg. exon count per gene: %.2f", sum.toFloat / count)
     
@@ -140,7 +141,6 @@ object Lesson1 extends Logger {
     val commonChrSet = chrSet.filter(chr => chrNamePattern.matcher(chr).matches())
     debug("common chr set:%s", commonChrSet)
 
-
     // Extract a subset of gene information
     info("Tuple")
     val tuples = genes.map(g => (g.name,  g.chr, g.strand, g.start, g.end))
@@ -149,7 +149,7 @@ object Lesson1 extends Logger {
     import xerial.silk.util.TimeMeasure._
 
     info("Parallel collection")
-    time("gene report", repeat=3) {
+    time("gene report", repeat=10) {
       block("single core") {
         val geneReport = genes.map(_.toString)
       }
