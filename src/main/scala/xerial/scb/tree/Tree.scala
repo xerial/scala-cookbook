@@ -59,30 +59,22 @@ class BinaryTree[+A](val root: Node[A]) {
   }
 
 
-  // set left node
-  def setLeft(target: A, newChild: A): this.type = {
-    val f = new Finder(target, {
-      case Tree(e, l, r) => Tree(e, Tree(newChild, Empty, Empty), r)
-    })
-    
+  private def set(target:A, newChild:A, updater:Tree[A] => Node[A]) : this.type = {
+    val f = new Finder(target, updater)
     val (newRoot, found) = f.find(root)
     if (found)
       new BinaryTree(newRoot)
     else
       this // no change
   }
+  
+  // set left node
+  def setLeft(target: A, newChild: A): this.type =
+    set(target, newChild, { case Tree(e, l, r) => Tree(e, Tree(newChild, Empty, Empty), r)})
+
 
   // set right node
-  def setRight(target: A, newChild: A): this.type = {
-    val f = new Finder(target, {
-      case Tree(e, l, r) => Tree(e, l, Tree(newChild, Empty, Empty))
-    })
-
-    val (newRoot, found) = f.find(root)
-    if (found)
-      new BinaryTree(newRoot)
-    else
-      this // no change
-  }
+  def setRight(target: A, newChild: A): this.type =
+    set(target, newChild, { case Tree(e, l, r) => Tree(e, l, Tree(newChild, Empty, Empty))})
 
 }
