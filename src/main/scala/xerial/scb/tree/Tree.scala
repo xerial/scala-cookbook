@@ -34,24 +34,17 @@ class BinaryTree[+A](val root: Node[A]) {
 
   private class Finder(target:A, updater: Tree[A] => Node[A]) {
     // (newNode, found flag)
-    def find(current: Node[A]): (Node[A], Boolean) = {
+    def find(current: Node[A]): Option[Node[A]] = {
       current match {
-        case Empty => (current, false)
+        case Empty => None
         case t @ Tree(elem, left, right) =>
           if (elem == target)
-            (updater(t), true)
+            Some(updater(t))
           else {
             // search left tree
-            val (l, found) = find(left)
-            if (found)
-              (Tree(elem, l, right), found)
-            else {
+            find(left).map(Tree(elem, _, right)).orElse {
               // search right tree
-              val (r, found) = find(right)
-              if(found)
-                (Tree(elem, left, r), found)
-              else
-                (current, false) // no change
+              find(right).map(Tree(elem, left, _))
             }
           }
       }
@@ -61,11 +54,8 @@ class BinaryTree[+A](val root: Node[A]) {
 
   private def set(target:A, newChild:A, updater:Tree[A] => Node[A]) : this.type = {
     val f = new Finder(target, updater)
-    val (newRoot, found) = f.find(root)
-    if (found)
-      new BinaryTree(newRoot)
-    else
-      this // no change
+    val newRoot = f.find(root)
+    newRoot.map(new BinaryTree(_)).getOrElse(this)
   }
   
   // set left node
