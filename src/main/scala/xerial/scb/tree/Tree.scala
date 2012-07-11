@@ -12,18 +12,25 @@ abstract class Node[+A] {
   def isEmpty: Boolean
 
   def getOrElse[B >: A](alternative: => Node[B]): Node[B]
+  def updateLeft[A1 >: A](e:A1) : Node[A1]
+  def updateRight[A1 >: A](e:A1) : Node[A1]
 }
 
 case object Empty extends Node[Nothing] {
   def isEmpty = true
 
   def getOrElse[B >: Nothing](alternative: => Node[B]): Node[B] = alternative
+  def updateLeft[A1 >: Nothing](e:A1)= this
+  def updateRight[A1 >: Nothing](e:A1) = this
 }
 
 case class Tree[+A](elem: A, left: Node[A], right: Node[A]) extends Node[A] {
   def isEmpty = false
 
   def getOrElse[B >: A](alternative: => Node[B]): Node[B] = this
+
+  def updateLeft[A1 >: A](e:A1) = Tree(elem, Tree(e, Empty, Empty), right)
+  def updateRight[A1 >: A](e:A1) = Tree(elem, left, Tree(e, Empty, Empty))
 }
 
 object BinaryTree {
@@ -63,11 +70,11 @@ class BinaryTree[A](val root: Node[A]) {
   
   // set left node
   def setLeft(target: A, newChild: A): BinaryTree[A] =
-    set(target, newChild, { t => Tree(t.elem, Tree(newChild, Empty, Empty), t.right)})
+    set(target, newChild, { _.updateLeft(newChild) })
 
 
   // set right node
   def setRight(target: A, newChild: A): BinaryTree[A] =
-    set(target, newChild, { t => Tree(t.elem, t.left, Tree(newChild, Empty, Empty))})
+    set(target, newChild, { _.updateRight(newChild) })
 
 }
