@@ -24,6 +24,13 @@ class BinaryTreeTest extends WordSpec with ShouldMatchers with Logger {
       b = b.setRight("A", "E")
       b = b.setRight("B", "D")
       info(b)
+
+      info("dfs")
+      b.dfs(info(_))
+
+      info("bfs")
+      b.bfs(info(_))
+
     }
   }
 

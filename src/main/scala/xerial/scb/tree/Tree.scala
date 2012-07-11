@@ -11,6 +11,7 @@ package xerial.scb.tree
 abstract class Node[+A] {
   def isEmpty: Boolean
 
+  def foreach[U](f:A => U)
   def getOrElse[B >: A](alternative: => Node[B]): Node[B]
   def updateLeft[A1 >: A](e:A1) : Node[A1]
   def updateRight[A1 >: A](e:A1) : Node[A1]
@@ -18,7 +19,7 @@ abstract class Node[+A] {
 
 case object Empty extends Node[Nothing] {
   def isEmpty = true
-
+  def foreach[U](f:Nothing => U) {}
   def getOrElse[B >: Nothing](alternative: => Node[B]): Node[B] = alternative
   def updateLeft[A1 >: Nothing](e:A1)= this
   def updateRight[A1 >: Nothing](e:A1) = this
@@ -27,6 +28,7 @@ case object Empty extends Node[Nothing] {
 case class Tree[+A](elem: A, left: Node[A], right: Node[A]) extends Node[A] {
   def isEmpty = false
 
+  def foreach[U](f:A => U) { f(elem) }
   def getOrElse[B >: A](alternative: => Node[B]): Node[B] = this
 
   def updateLeft[A1 >: A](e:A1) = Tree(elem, Tree(e, Empty, Empty), right)
@@ -76,5 +78,37 @@ class BinaryTree[A](val root: Node[A]) {
   // set right node
   def setRight(target: A, newChild: A): BinaryTree[A] =
     set(target, newChild, { _.updateRight(newChild) })
+  
+  
+  def dfs[B](f: A => B) {
+    def dfs(node:Node[A]) {
+      node match {
+        case Empty =>
+        case Tree(e, l, r) => {
+          f(e)
+          dfs(l)
+          dfs(r)
+        }
+      }
+    }
+    dfs(root)
+  }
+
+  def bfs[B](f: A=> B) {
+    val queue = new collection.mutable.Queue[Node[A]]
+    queue += root
+
+    while(!queue.isEmpty) {
+      val node = queue.dequeue
+      node match {
+        case Empty =>
+        case Tree(e, l, r) => {
+          f(e)
+          queue += l
+          queue += r
+        }
+      }
+    }
+  }
 
 }
