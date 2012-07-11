@@ -17,7 +17,7 @@ case object Empty extends Node[Nothing] {
   def getOrElse[B >: Nothing](alternative: => Node[B]) : Node[B] = alternative
 }
 
-case class Fork[+A](elem:A, left:Node[A], right:Node[A]) extends Node[A] {
+case class Tree[+A](elem:A, left:Node[A], right:Node[A]) extends Node[A] {
   def isEmpty = false
   def getOrElse[B >: A](alternative: => Node[B]) : Node[B] = this
 }
@@ -28,27 +28,25 @@ object BinaryTree {
 
 class BinaryTree[+A](val root:Node[A]) {
   
-  type Tree = this.type
-
   // set left node
-  def setLeft(target:A, newChild:A) : Tree = {
+  def setLeft(target:A, newChild:A) : this.type = {
 
     var found = false
 
     def find(current:Node[A]) : Node[A] = {
       current match {
-        case Empty => Empty
-        case Fork(elem, left, right) => 
+        case Empty => current
+        case Tree(elem, left, right) =>
           if(elem == target) {
             found = true
-            Fork(elem, Fork(newChild, Empty, Empty), right)
+            Tree(elem, Tree(newChild, Empty, Empty), right)
           }
           else {
             val l = find(left)
             if(!l.isEmpty)
-              Fork(elem, l, right)
+              Tree(elem, l, right)
             else
-              Fork(elem, left, find(right))
+              Tree(elem, left, find(right))
           }
       }
     }
@@ -60,6 +58,8 @@ class BinaryTree[+A](val root:Node[A]) {
   }
 
   // TODO: set right node
+
+
 
 
   
