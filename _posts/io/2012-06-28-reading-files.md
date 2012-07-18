@@ -63,7 +63,7 @@ tags: [I/O]
 上記のコードでは*null*の扱いに気をつける必要があり、安全ではない。*null*の使用をクラスの内部に閉じ込め、使う側は*null*を気にせず一行ずつ操作できる```Iterator[String]```を提供する形に書き換える。
 
 	// 一行ずつ読み込むiteratorを定義
-	class LineItertor(in:BufferedReader) extends Iterator[String] {
+	class LineIterator(in:BufferedReader) extends Iterator[String] {
 		private var nextLine : String = null
 		def hasNext = {
 			if(nextLine == null)
@@ -81,7 +81,7 @@ tags: [I/O]
 		}
 	}
 
-	def open(fileName:String)(body:Iterator[String] => Unit) : Unit = {
+	def open[U](fileName:String)(body:Iterator[String] => U) {
 		val in = new BufferedReader(new FileReader(fileName))
 		try
 			body(new LineIterator(in)) // Iteratorを返す
