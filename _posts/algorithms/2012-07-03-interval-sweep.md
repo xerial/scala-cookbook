@@ -66,6 +66,8 @@ sweepする際にはstartだけでなく、endの情報もpriority queue(優先�
 
 ## コード例
 
+pullスタイル（データを引っ張りながら使う）で使えるようにIteratorを定義している。push型（生成した結果をどんどん第三者に書き出す形）にすればもう少し平易なコードになる。
+
 [OverlapSweeper.scala](https://github.com/xerial/genome-weaver/blob/fba37256f6d372993989cc8e77bfab02a6700ae7/lens/src/main/scala/utgenome/weaver/lens/OverlapSweeper.scala)
 
     import collection.{mutable, SortedSet}
