@@ -1,0 +1,11 @@
+{% for post in site.posts %}
+[{{forloop.index}}][{{ post.id }}]
+{% endfor %}
+
+{% for post in site.posts %}
+[{{ post.id }}]:{{ BASE_PATH }}{{ post.url }} "{{ post.title }}"
+{% endfor %}
+
+
+
+
