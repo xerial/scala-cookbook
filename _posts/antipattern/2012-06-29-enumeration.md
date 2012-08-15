@@ -34,11 +34,11 @@ DNAの塩基を表すコード。[genome-weaverのDNA.scala](https://github.com/
 
 	object DNA {
       // objectで定義するとsingletonになる
-	  object A extends DNA("A", 0)
-	  object C extends DNA("C", 1)
-	  object G extends DNA("G", 2)
-	  object T extends DNA("T", 3)
-	  object N extends DNA("N", 4)
+	  object A extends DNA(0)
+	  object C extends DNA(1)
+	  object G extends DNA(2)
+	  object T extends DNA(3)
+	  object N extends DNA(4)
 
       // DNAの文字列をすべて並べる。
       val values = Array(A, C, G, T, N)
@@ -53,7 +53,9 @@ DNAの塩基を表すコード。[genome-weaverのDNA.scala](https://github.com/
 	// sealedを付けると、DNAを拡張したクラスはこのファイル内でしか定義できない
 	// abstractを付けると、DNAを拡張したクラスはA, C, G, T, N以外にないことを保証できるので
 	// match文がexhaustive(すべてのケースを網羅)になる
-	sealed abstrat class DNA(val name:String, val code:Int) {
+	sealed abstrat class DNA(val code:Int) {
+	    // object名(最後に$マークが付くので除く)をenum名として使う
+		val name = this.getClass.getSimpleName.replaceAll("""\$""", "")
 		override def toString = name
 		// DNAクラスには自由にメソッドを定義できる
 		def complement = DNA.complement(code)
