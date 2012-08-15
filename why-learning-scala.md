@@ -18,7 +18,7 @@ tagline: Why learning Scala is important?
   * テンプレートによるHack (Modern C++ Design)
   * 言語の不備を乗り越えるためのデザインパターン
      * JavaでのVisitorパターンなどはScalaでは不要。パターンマッチを使えば良い
-	 * ただし、Scala特有のデザインパターンはある (Loan, concept, cake pattern, monadoなどなど)
+	 * ただし、Scala特有のデザインパターンはある (Loan, concept, cake pattern, monadなどなど)
   * Rubyもprimitive型を捨て、オブジェクト指向に徹することで良いデザインの言語になっている
 * コレクションとその基本操作(map, filter, foldなど)が充実
   * Javaで数百行必要なコードが数行にまとまることも珍しくない
