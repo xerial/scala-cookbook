@@ -57,7 +57,7 @@ disquss: false
      * object (singleton)
      * パラメーターの定義
      * 初期化コード
-  　 * lazy parameter
+     * lazy parameter
 
    * pattern matching
    * case class
