@@ -158,11 +158,13 @@ Setを拡張し、iterator、要素数などを取得できるように。
       val root = containerOf(find(e))
       for(c <- containerList if find(c.elem) == root.elem) yield c.elem
     }
-    /**
+
+	/**
      * Iterator of each group
      */
     def groups: Iterable[Iterable[E]] =
-      for((root, lst) <- containerList.groupBy(find(_.elem))) yield lst
+      for((root, containers) <- containerList groupBy(_.elem)) yield 
+	    containers map (_.elem)
 
 
 
