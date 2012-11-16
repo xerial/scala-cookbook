@@ -31,5 +31,5 @@ Optionも、covariantを使ってOption[+A]として定義されており、None
       def flatMap[B](f: Nothing => Monad[B]) : Option[B] = None
     }
 
-Nothingはあらゆる型の親になれるようにScalaで定義されているので、None、すなわちOption[Nothing]は、Option[A]やOption[B]などに代入できます。この工夫により、None[A], None[B]などと宣言する必要はなく、Noneとだけコード中に書けば良くなっています。
+Nothingはあらゆる型の子（subtype）になれるようにScalaで定義されているので、None、すなわちOption[Nothing]は、Option[A]やOption[B]などに代入できます。この工夫により、None[A], None[B]などと宣言する必要はなく、Noneとだけコード中に書くだけで済むようになっています。
 
