@@ -7,6 +7,15 @@ tags: [I/O]
 ---
 {% include JB/setup %}
 
+## scala.io.Sourceを使う
+
+一行ずつデータを読む簡単なプログラムを書きたい場合には以下のように書ける。
+
+	# lineに各行のデータが代入される
+	for(line <- Source.fromFile("file name").getLines) { ... }
+
+よりファイルを閉じるタイミングや読み書きの性能等を気にするなら以下を参考に。
+
 ## バッファを経由して読む
 
 [Loan pattern]({{BASE_PATH}}/recipes/2012/06/27/loan-pattern)を使う。ファイルの入出力の機能はJavaのライブラリから借りてくる。
@@ -33,7 +42,7 @@ tags: [I/O]
 	}
 	
 
-## 一行ずつ読み
+## 一行ずつ読む
 
 ```BufferedReader```を使うと良い。
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "for-comprehensionを理解する"
-description: "ループ？いいえ違います"
+description: "map, flatMap"
 category: recipes
 tags: [collections]
 ---
