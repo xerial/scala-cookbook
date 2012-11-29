@@ -105,6 +105,32 @@ Scalaプログラムの入口は`main`関数で、以下のように定義され
 
 このコマンドはテストコードが実行された後も終了せず、ソースコードの変更があるたびに、コンパイル、テストの実行を行ってくれます。Scalaでの開発時間の短縮に重宝します。
 
+### タグ付けしたテストのみを実行
+
+tagを付けることで特定のテストのみを繰り返し実行できるようになります。
+
+`src/test/scala/HelloTest.scala`
+
+    "add a tag to test" taggedAs("test1") in {
+      debug("test1 is running")
+    }
+
+**実行例**
+
+	$ bin/sbt "~test-only *HelloTest -- -n test1" -Dloglevel=debug
+    Using C:\Users\leo\.sbt\0.12.0 as sbt dir, -sbt-dir to override.
+    [info] Loading global plugins from C:\Users\leo\.sbt\0.12.0\plugins
+    [info] Loading project definition from C:\Users\leo\work\tmp\myproject\project
+    [info] Set current project to scala-min (in build file:/C:/Users/leo/work/tmp/myproject/)
+    [HelloTest] test1 is running
+    [info] HelloTest:
+    [info] Hello
+    [info] - should add a tag to test
+    [info] Passed: : Total 1, Failed 0, Errors 0, Passed 1, Skipped 0
+    [success] Total time: 1 s, completed 2012/11/29 12:06:24
+    1. Waiting for source changes... (press enter to interrupt)
+
+	
 
 ## ログを表示する
 
@@ -128,7 +154,7 @@ Scalaプログラムの入口は`main`関数で、以下のように定義され
       info("Floating point value: pi = %.10f, rad=%.3e", math.Pi, math.toRadians(math.Pi))
     }
 
-`printf`などによる表示では、ログを出力するコードを本番用コードで取り除く必要があって大変ですが、`trace` < `debug` < `info` < `warn` < `error` < `fatal` の順にログレベルを分けることで、例えば以下のようにログレベルを設定し、'debug`以上のログのみを表示することができます。
+`printf`などによる表示では、ログを出力するコードを本番用コードで取り除く必要があって大変ですが、`trace` < `debug` < `info` < `warn` < `error` < `fatal` の順にログレベルを分けることで、例えば以下のようにログレベルを設定し、`debug`以上のログのみを表示することができます。
 
 	$ bin/sbt "~test" -Dloglevel=debug
 
