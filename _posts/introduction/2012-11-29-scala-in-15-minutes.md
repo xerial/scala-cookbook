@@ -134,7 +134,7 @@ Scalaプログラムの入口は`main`関数で、以下のように定義され
 デフォルトでは`info`以上のログが表示される設定になっています。
 
 
-* ログの表示には、[xerial-core](https://github.com/xerial) ライブラリにある`Logger` traitが使われています。
+* ログの表示には、[xerial-core](https://github.com/xerial/xerial) ライブラリにある`Logger` traitが使われています。
 
 ## コードの実行時間を計測する
 
@@ -178,7 +178,7 @@ Scalaではスレッドを使った処理の並列化が容易なので、single
 
 平均してはmulti coreのコードが速いが、スレッドを立ち上げるオーバーヘッドがあるので、必ずしも並列化した方が速いとは限らない(実行時間のmaxの値)。
 
-* 実行時間の計測には、[xerial-core](https://github.com/xerial) ライブラリにある`Timer` traitが使われています。
+* 実行時間の計測には、[xerial-core](https://github.com/xerial/xerial) ライブラリにある`Timer` traitが使われています。
 
 
 ## Scalaコードのパッケージを作成する
