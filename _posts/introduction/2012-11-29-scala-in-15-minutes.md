@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "15分で学ぶScala"
+title: "15分で始めるScala"
 description: ""
 category: recipes
 tags: [introduction]
