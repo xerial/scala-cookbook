@@ -107,9 +107,9 @@ Scalaプログラムの入口は`main`関数で、以下のように定義され
 
 ## ログを表示する
 
-プログラムを開発するときに、変数の内容をログとして表示できると便利です。IDEなどでブレークポイントなどを設定しなくてもコードのデバッグがしやすくなります。
+プログラムを開発するときに、変数の内容やどの部分のコードが実行されているかなどの情報をログとして表示できると便利です。IDEなどでブレークポイントなどを設定しなくてもコードのデバッグがしやすくなります。
 
-'HelloTest.scala'のテストコード中にログを表示する例があります。
+`HelloTest.scala`のテストコード中にログを表示する例があります。
 
     "display log messages" in {
       // To see the log messages higher than the debug level,
@@ -127,7 +127,7 @@ Scalaプログラムの入口は`main`関数で、以下のように定義され
       info("Floating point value: pi = %.10f, rad=%.3e", math.Pi, math.toRadians(math.Pi))
     }
 
-`printf`などによる表示では、ログを出力するコードを本番用コードで取り除く必要がありますが、`trace` < `debug` < `info` < `warn` < `error` < `fatal` の順にログレベルを分けることで、例えば以下のようにログレベルを設定し、'debug`以上のログのみを表示することができます。
+`printf`などによる表示では、ログを出力するコードを本番用コードで取り除く必要があって大変ですが、`trace` < `debug` < `info` < `warn` < `error` < `fatal` の順にログレベルを分けることで、例えば以下のようにログレベルを設定し、'debug`以上のログのみを表示することができます。
 
 	$ bin/sbt "~test" -Dloglevel=debug
 
@@ -176,7 +176,7 @@ Scalaではスレッドを使った処理の並列化が容易なので、single
       -single-core  total:0.447 sec., count:  100, avg:0.004 sec., min:0.003 sec., max:0.034 sec.
       -multi-core   total:0.253 sec., count:  100, avg:0.003 sec., min:0.001 sec., max:0.078 sec.
 
-平均してはmulti coreのコードが速いが、スレッドを立ち上げるオーバーヘッドがあるので、必ずしも並列化した方が速いとは限らない(実行時間のmaxの値)。
+平均してmulti coreのコードが速いが、スレッドを立ち上げるオーバーヘッドがあるので、個々の実行で見ると必ずしも並列化した方が速いとは限らない(実行時間のmaxの値を参照)。
 
 * 実行時間の計測には、[xerial-core](https://github.com/xerial/xerial) ライブラリにある`Timer` traitが使われています。
 
