@@ -54,7 +54,7 @@ DNAの塩基を表すコード。[genome-weaverのDNA.scala](https://github.com/
 	// abstractを付けると、DNAを拡張したクラスはA, C, G, T, N以外にないことを保証できるので
 	// match文がexhaustive(すべてのケースを網羅)になる
 	sealed abstrat class DNA(val code:Int) {
-	    // case objectを実装すると、クラス名を表示するtoStringが実装される
+	    // A, C, G, T, Nをcase objectとすると、クラス名を表示するtoStringが実装される
 		val name = toString
 		// DNAクラスには自由にメソッドを定義できる
 		def complement = DNA.complement(code)
