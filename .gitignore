@@ -3,3 +3,4 @@ _site
 .idea*
 project
 target
+.DS_Store

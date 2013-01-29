@@ -12,7 +12,7 @@
   <!-- Le styles -->
     <style type="text/css">
       body {
-        padding-top: 60px;
+        padding-top: 50px;
         padding-bottom: 40px;
       }
       .Sidebar-nav {
@@ -44,14 +44,13 @@
 
   <body>
     {% include navbar.html %}
-
     <div class="container">
       {{ content }}
       {% include disquss.html %}
       <footer>
 	<div class="row" style="text-align:center;">
 	  <div class="span12">
-	  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><br/>Scala Cookbook</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.xerial.org/leo/" property="cc:attributionName" rel="cc:attributionURL">Taro L. Saito</a> (Twitter <a href="http://twitter.com/#!/taroleo">@taroleo</a>) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+	    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><br/>Scala Cookbook</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.xerial.org/leo/" property="cc:attributionName" rel="cc:attributionURL">Taro L. Saito</a> (Twitter <a href="http://twitter.com/#!/taroleo">@taroleo</a>) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
 	  </div>
         </div>
       </footer>
@@ -74,8 +73,13 @@
     <script src="{{ BASE_PATH}}/assets/js/bootstrap-collapse.js"></script>
     <script src="{{ BASE_PATH}}/assets/js/bootstrap-carousel.js"></script>
     <script src="{{ BASE_PATH}}/assets/js/bootstrap-typeahead.js"></script>
+    <script src="{{ BASE_PATH}}/assets/js/bootstrap-affix.js"></script>
     <script src="{{ BASE_PATH}}/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="{{ BASE_PATH}}/assets/js/toc.js"></script>
    <script>$(document).ready( function(){$('code').parent('pre').addClass('prettyprint');prettyPrint();});</script>
+   <script type="text/javascript">
+     $('#toc').toc({exclude: 'h1, h5, h6', context: '', autoId: true, numerate: false});
+   </script>
     {% include JB/analytics %}
   </body>
 </html>
