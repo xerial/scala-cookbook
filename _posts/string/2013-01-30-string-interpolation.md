@@ -7,7 +7,7 @@ tags: [string, scala2.10]
 ---
 {% include JB/setup %}
 
-Scala2.10より、[String Interpolation](http://docs.scala-lang.org/overviews/core/string-interpolation.html)の機能が追加され、文字列中に式を埋め込むのが用意になりました。
+Scala2.10より、[String Interpolation](http://docs.scala-lang.org/overviews/core/string-interpolation.html)の機能が追加され、文字列中に式を埋め込むのが容易になりました。
 
 ## 使い方
 
