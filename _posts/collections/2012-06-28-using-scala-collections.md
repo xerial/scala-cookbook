@@ -7,6 +7,8 @@ tags: [collections]
 ---
 {% include JB/setup %}
 
+## 準備
+
 ### コードの取得
 
 	$ git clone git://github.com/xerial/scala-cookbook.git
@@ -31,7 +33,7 @@ Windows (DOS) プロンプトで実行する場合
 
 上記のコマンドで、ソースコードに変更を加えるたびに、コンパイル、テストを実行を自動的に行ってくれる。
 
-### 課題
+## 課題
 
 以下の作業をするコードを作成
 
@@ -74,6 +76,7 @@ Windows (DOS) プロンプトで実行する場合
 
 コード中の```debug```, ```info```, ```time```などのメソッドはScalaコードのデバッグ用に私が普段使っているもの。
 
+## データセットの準備
 
 ### 遺伝子データをダウンロードする
 
@@ -146,6 +149,8 @@ parseする際、データにエラーがあっても例外を飛ばしていな
 * 正しく読めた -> Some(parseした結果)
 * 正しく読めなかった -> None 
 
+## コレクションを使う
+
 ### コレクションを構築する
 サイズの小さいデータなら、以下のように作成できる。
 
@@ -178,7 +183,13 @@ parseする際、データにエラーがあっても例外を飛ばしていな
     }
     b.result
 
-#### for loop
+#### Arrayへのアクセス：apply, update
+
+	val a = Array(0, 1, 3)
+
+```a(0)``` は```a.apply(0)```のsyntax sugarで、```a(0)=10```は```a.update(0, 10)```のsyntax sugarになっている。
+
+### for loop
 上記は二段ループの例。Scalaのforループでは、[flatMap](http://www.scala-lang.org/api/current/index.html#scala.collection.GenTraversableLike)が使われている。
 	
 	for(x <- list) { ... } 
@@ -193,7 +204,7 @@ parseする際、データにエラーがあっても例外を飛ばしていな
 
 と同等。
 
-#### Option 
+### Option 
 Optionの値に対してfor loopを使うと、
 
 	for(line <- Some(x)) { ... }
@@ -256,6 +267,7 @@ Exonの数をカウントする。以下はすべて同じ結果になる
 遺伝子ごとのExonの数の平均を計算する:
 
     val (count, sum) = genes.foldLeft((0, 0))((s, gene) => (s._1 + 1, s._2 + gene.exonCount))
+	val exonCountAve = count / sum
 
 ### groupBy
 
@@ -312,6 +324,8 @@ Tupleはあえてクラスを作るまでもないときに、簡易データ構
 
 tupleの各要素には、_1, _2, ...などでアクセスし、要素をコレクションとして辿るには```tuple.productIterator```を呼び出す。
 
+## 並列化
+
 ### Parallel collection
 
 Scalaでのマルチコア並列化は驚くほど簡単。コレクションの```par```関数を呼び出すだけ。
@@ -346,11 +360,4 @@ multi core で実行
     [gene report]	total:1.529 sec., count:3, avg:0.510 sec., min:0.322 sec., max:0.873 sec.
       [single core]	total:1.173 sec., count:3, avg:0.391 sec., min:0.236 sec., max:0.697 sec.
       [parallel]	total:0.350 sec., count:3, avg:0.117 sec., min:0.086 sec., max:0.171 sec.
-
-### apply, update
-
-	val a = Array(0, 1, 3)
-
-```a(0)``` は```a.apply(0)```のsyntax sugarで、```a(0)=10```は```a.update(0, 10)```のsyntax sugarになっている。
-
 

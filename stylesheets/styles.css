@@ -12,16 +12,23 @@ p, a, li {
 }
 
 h1 { font-size: 22px; }
-h2 { font-size: 20px; }
-h3 { font-size: 18px; }
+h2 { 
+    font-size: 20px; 
+    border-bottom: 2px solid #66AACC;
+/*    padding-left: 10px;*/
+}
+h3 { 
+    font-size: 18px; 
+    border-bottom: 2px solid #ccc;
+}
 h4 { font-size: 16px; }
 h5 { font-size: 14px; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family:'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#222;
-  margin:12px 0 5px;
-  padding-top: 40px;
+  margin:0px 0 5px 0px;
+  padding-top: 35px;
 }
 
 
@@ -144,6 +151,9 @@ pre,pre.prettyprint {
     padding-top: 0px;
 }
 
+.category h3 {
+    border-bottom: none;
+}
 
 .cheetsheet code {
   background: transparent;
