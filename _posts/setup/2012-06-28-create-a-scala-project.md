@@ -7,6 +7,9 @@ tags: [setup]
 ---
 {% include JB/setup %}
 
+**ここに書いてあることを手早く実行するには、[15分で始めるScala]({{BASE_PATH}}/recipes/2012/11/29/scala-in-15-minutes/)がおすすめです。(2013年1月)**
+
+
 ## sbt
 
 Scalaのコンパイル、テストの実行にはsbt (Simple Build Tool) (全然simpleではないが!) を使うのが2012年現在でのbest practice. IDEではあまりコンパイルしない。
@@ -23,6 +26,7 @@ Scalaのコンパイル、テストの実行にはsbt (Simple Build Tool) (全�
 * テストの実行
 
 ## sbtを使ったおすすめの最小構成
+
 
 GitHub [https://github.com/xerial/scala-cookbook/tree/min-project](https://github.com/xerial/scala-cookbook/tree/min-project) にすぐScalaの開発を始めるためのコードサンプルが置いてあります。
 

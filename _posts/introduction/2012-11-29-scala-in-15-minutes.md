@@ -3,11 +3,11 @@ layout: post
 title: "15分で始めるScala"
 description: ""
 category: recipes
-tags: [introduction]
+tags: [introduction, setup]
 ---
 {% include JB/setup %}
 
-これはScalaを使った開発の雰囲気を感じてもらうための文章です。
+これはScalaを使った開発環境を素早く整え、実際の開発の雰囲気を感じてもらうための文章です。
 
 ## ここでできるようになること
 
