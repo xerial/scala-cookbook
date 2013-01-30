@@ -17,7 +17,8 @@ Scala Cookbook [http://xerial.org/scala-cookbook](http://xerial.org/scala-cookbo
 
 {% include recent_posts.html %}
 
-## Scala Recipes
+<h2 id="recipes-ref">Scala Recipes</h2>
+
 {% include tag_lists.html %}
 
 {% include recipes.html %} 

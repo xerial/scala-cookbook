@@ -11,19 +11,7 @@
             <ul class="nav">
 <!--	      <li><a><i class="icon-book icon-white"></i> Lessons </a></li>-->
 	      <li><a href="{{ BASE_PATH }}/"><i class="icon-home icon-white"></i> Home </a></li>
-	      <li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		  <i class="icon-book icon-white"></i> 
-		  Recipes 
-		  <b class="caret"></b>
-		</a>
-		<ul class="dropdown-menu">
-		  {% assign tags_list = site.tags %}
-		  {% for tag in site.tags %} 
-		  <li style="text-transform:capitalize;"><a href="{{ BASE_PATH }}/#{{ tag[0] }}-ref">{{ tag[0] | join: "/" }}</a></li>
-		  {% endfor %}
-		</ul>
-	      </li>
+	      <li><a href="{{ BASE_PATH }}/#recipes-ref"><i class="icon-book icon-white"></i> Recipes </a></li>
 	      <li><a href="{{ BASE_PATH }}/pages.html"><i class="icon-th-list icon-white"></i> Pages </a></li>
 <!--	      <li><a><i class="icon-arrow-down icon-white"></i> Download</a></li>-->
 	      <li><a href="http://github.com/xerial/scala-cookbook"><i class="icon-leaf icon-white"></i> GitHub</a></li>
