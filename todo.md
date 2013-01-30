@@ -20,4 +20,5 @@ disquss: true
 
 ## リンク集
  * [Scala Cookbook](http://xerial.org/scala-cookbook)
- 
+ * [Functional Programming Principles in Scala - Martin Odersky](https://www.coursera.org/course/progfun) 
+    * Scalaの作者 Martin OderskyによるScalaのビデオ講義（英語）。充実しています。
