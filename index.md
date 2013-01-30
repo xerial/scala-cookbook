@@ -13,11 +13,13 @@ Scala Cookbook [http://xerial.org/scala-cookbook](http://xerial.org/scala-cookbo
 * [Scala Cookbookに寄稿、改善に協力する](contribute.html)  レシピの追加、修正等を歓迎します。
   * [今後追加したい・すべき内容](todo.html)
 
-<h2 style="border:none;"> New Recipes <a href="{{ BASE_PATH }}/atom.xml"><img src="{{BASE_PATH}}/images/feed-icon-28x28.png" width="14" height="14" title="subscribe recent posts of scala-cookbook"></a> </h2>
+## New Recipes <a href="{{ BASE_PATH }}/atom.xml"><img src="{{BASE_PATH}}/images/feed-icon-28x28.png" width="14" height="14" title="subscribe recent posts of scala-cookbook"></a>
 
 {% include recent_posts.html %}
 
-# Scala Recipes
+## Scala Recipes
+{% include tag_lists.html %}
+
 {% include recipes.html %} 
 
 ## 参考資料
