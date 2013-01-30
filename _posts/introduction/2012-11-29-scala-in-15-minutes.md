@@ -14,6 +14,7 @@ tags: [introduction]
 * Scalaプロジェクトの作成
 * 簡単なScalaコードの作成
 * テストコードの実行
+  * 開発しながらテストを行なう
   * ログの表示
   * コードの実行時間の計測
 * システムにインストールできる形のパッケージを作成
@@ -131,7 +132,13 @@ tagを付けることで特定のテストのみを繰り返し実行できる�
     [success] Total time: 1 s, completed 2012/11/29 12:06:24
     1. Waiting for source changes... (press enter to interrupt)
 
-	
+
+### 特定のクラスにあるテストをすべて実行
+
+タグ指定せずに以下の用に入力すると、HelloTestクラスの中にあるすべてのテストが繰り返し実行されます。wildcard(`*`)が使えます。
+
+	bin/sbt "~test-only *HelloTest"
+
 
 ## ログを表示する
 
