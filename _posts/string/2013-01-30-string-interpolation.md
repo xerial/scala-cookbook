@@ -26,7 +26,7 @@ double quotationの前に`s`を付けると、文字列中にある`$(変数名)
 	
 ### f String
 	
-文字列に`f`をつけると[printf](http://docs.oracle.com/javase/1.6.0/docs/api/java/util/Formatter.html#detail)の構文が使えるようになる。
+文字列に`f`をつけると[printf](http://docs.oracle.com/javase/1.6.0/docs/api/java/util/Formatter.html#detail)の構文が使えるようになる。`$(変数名)%(フォーマット指定)`を文字列に埋め込むと変数の内容を表示するときのフォーマットが指定できる。
 	
 	val dollarToYenRate = 80.0
 	val budget_d = 10000000
