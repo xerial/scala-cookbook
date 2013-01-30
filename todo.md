@@ -6,6 +6,8 @@ disquss: true
 ---
 {% include JB/setup %}
 
+このページのソース <https://github.com/xerial/scala-cookbook/blob/gh-pages/todo.md>
+
 ## Scalaのデザインパターン
  * Option monadなどは記述済み
  * (他にはどんなパターンが？）
