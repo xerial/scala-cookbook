@@ -25,7 +25,7 @@
 	 */
     $.fn.toc = function(options) {
         var opts = $.extend({}, $.fn.toc.defaults, options);
-        var toc = this.append('<ul class="nav nav-list"></ul>').children('ul');
+        var toc = this.append('<ul class="nav nav-list"><li class="nav-header">Contents</li></ul>').children('ul');
         var headers = {h1: 0, h2: 0, h3: 0, h4: 0, h5: 0, h6: 0};
         var index = 0;
         var indexes = {h1: 0, h2: 0, h3: 0, h4: 0, h5: 0, h6: 0};
@@ -34,6 +34,7 @@
         }
 
         return this.each(function() {
+	    var counter = 1
     	    $(opts.context + ' :header').not(opts.exclude).each(function() {
                 var $this = $(this);
                 for (var i = 6; i >= 1; i--) {
@@ -43,7 +44,9 @@
                             updateNumeration(headers, 'h' + i);
                             $this.text(addNumeration(headers, 'h' + i, $this.text()));
                         }
-                        $this.attr('id', generateId($this.text()));
+                        // $this.attr('id', generateId($this.text()));
+			$this.attr('id', 'section' + counter);
+			counter += 1;
                         appendToTOC(toc, indexes['h' + i], $this.attr('id'), $this.text())
                     }
                 }

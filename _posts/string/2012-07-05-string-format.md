@@ -9,6 +9,9 @@ tags: [string]
 
 文字列を整形して出力したい。
 
+**Scala2.10より、[String interpolation]({{BASE_PATH}}/recipes/2013/01/30/string-interpolation/)が使えるようになりtype safeな文字列の整形ができるようになりました。こちらがおすすめ　(2013年1月)**
+
+
 ## 
 String.formatを使う。
 
@@ -25,7 +28,6 @@ String.formatを使う。
 	}
 
 デバッグ用の文字列を出力するのに重宝。type safeでない（`%f`に文字列の値を渡してしまうと、`IllegalFormatException`が発生してしまう）のだが、他によい代替品が現れるまでは使う機会も多いだろう。
-
 
 ## formatによく使うシンボル
 
