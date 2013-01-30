@@ -73,7 +73,7 @@ ScalaTestのテストコードには、`taggedAs(Tag("tagname"))`でタグを付
 テストのみを実行することができます。一部のコードに集中してデバッグした
 いときに便利。
 
-	$ bin/sbt "~test-only *FASTATest -- include(debug)"
+	$ bin/sbt "~test-only *FASTATest -- -n debug"
 	
 	
 	
