@@ -1,21 +1,7 @@
 
 <div class="row">
   <div class="span9">
-    <div class="page-header">
-      {% assign tags_list = page.tags %}
-      <h1>{{ page.title }} <small>{{ page.description }} </small></h1>
-	<div class="sns">
-          <ul>
-	    <li>
-	      {% for tag in tags_list %}
-	      <a class="label label-info" href="{{ BASE_PATH }}/#{{ tag }}-ref">{{ tag }}</a>
-	      {% endfor %}
-	    </li>
-	    <li><small style="vertical-align:middle;">Published {{ page.date | date_to_long_string }}</small></li>
-	    {% include sns_button.html %}
-	  </ul>
-	</div>
-    </div>
+    {% include post_title.html %}
     {{ content }}
     <div class="pagination">
       <ul style="white-space:nowrap;">

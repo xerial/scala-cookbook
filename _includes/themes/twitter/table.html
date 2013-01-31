@@ -1,14 +1,8 @@
-<div class="page-header">
-  {% assign tags_list = page.tags %}
-  <h1>{{ page.title }} <small>{{ page.description }} </small> </h1>
-  {% for tag in tags_list %}
-<a class="label label-info" href="{{ BASE_PATH }}/#{{ page.tags[0] }}-ref">{{ page.tags }}</a> 
-  {% endfor %}
-  <small style="vertical-align:middle;">Published {{ page.date | date_to_long_string }}</small>
-</div>
+
 
 <div class="row">
   <div class="span9 table table-stripe table-condensed cheetsheet">
+    {% include post_title.html %}
     {{ content }}
     <div class="pagination">
       <ul style="white-space:nowrap;">
@@ -25,5 +19,8 @@
       {% endif %}
       </ul>
     </div>
+  </div>
+  <div class="span3">
+    <div id="toc" class="well well-small affix"></div>
   </div>
 </div>
