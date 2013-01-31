@@ -3,7 +3,7 @@ layout: post
 title: "文字列に式を埋め込んで整形する"
 description: "String interpolation"
 category: recipes
-tags: [string, scala2.10]
+tags: [string, Scala 2.10]
 ---
 {% include JB/setup %}
 
