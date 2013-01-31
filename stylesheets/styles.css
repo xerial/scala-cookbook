@@ -167,21 +167,21 @@ pre,pre.prettyprint {
 }
 
 
-.ssn {
+.sns {
   overflow: hidden;
 }
 
-.ssn ul {
+.sns ul {
   margin-top: 2px;
   margin-left: 0;
 }
 
-.ssn li {
+.sns li {
   float: left;
   margin-right: 5px;
   list-style: none;
 }
 
-.ssn iframe {
+.sns iframe {
   margin:0 !important;
 }
