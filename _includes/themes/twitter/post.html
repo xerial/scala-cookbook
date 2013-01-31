@@ -3,13 +3,22 @@
   <div class="span9">
     <div class="page-header">
       {% assign tags_list = page.tags %}
-      <h1>{{ page.title }} <small>{{ page.description }} </small> <a href="https://twitter.com/share" class="twitter-share-button" data-via="taroleo">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-      </h1>
-      {% for tag in tags_list %}
-      <a class="label label-info" href="{{ BASE_PATH }}/#{{ tag }}-ref">{{ tag }}</a> 
-      {% endfor %}
-      <small style="vertical-align:middle;">Published {{ page.date | date_to_long_string }}</small>
+      <h1>{{ page.title }} <small>{{ page.description }} </small></h1>
+	<div class="ssn">
+          <ul>
+	    <li>
+	      {% for tag in tags_list %}
+	      <a class="label label-info" href="{{ BASE_PATH }}/#{{ tag }}-ref">{{ tag }}</a>
+	      {% endfor %}
+	    </li>
+	    <li><small style="vertical-align:middle;">Published {{ page.date | date_to_long_string }}</small></li>
+	    <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="taroleo">Tweet</a>
+	  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
+	    </li>
+ 	    <li><div class="fb-like" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true" data-colorscheme="light" data-action="like"></div></li>
+	  </ul>
+	</div>
+
     </div>
     {{ content }}
     <div class="pagination">

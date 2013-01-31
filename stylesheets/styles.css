@@ -165,3 +165,22 @@ pre,pre.prettyprint {
 .affix {
   position: fixed;
 }
+
+
+.ssn {
+  overflow: hidden;
+}
+
+.ssn ul {
+  margin-left: 0;
+}
+
+.ssn li {
+  float: left;
+  margin-right: 5px;
+  list-style: none;
+}
+
+.ssn iframe {
+  margin:0 !important;
+}
