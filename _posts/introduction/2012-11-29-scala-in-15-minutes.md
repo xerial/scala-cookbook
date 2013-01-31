@@ -34,7 +34,7 @@ Scalaプロジェクトの必要最低限のひな形をGitHub上に[scala-min](
 
    	$ mkdir myproject
     $ cd myproject
-    $ curl -L https://github.com/xerial/scala-min/archive/0.1.1.tar.gz | tar xvz --strip-components=1
+    $ curl -L https://github.com/xerial/scala-min/archive/0.2.tar.gz | tar xvz --strip-components=1
 
 **備考**: [GitHub](http://github.com)はオープンソースでのコード開発を支援するサービスです。Scala自身の開発もここで行われています。
 
