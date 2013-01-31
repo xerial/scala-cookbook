@@ -245,11 +245,20 @@ Scalaではスレッドを使った処理の並列化が容易なので、single
 
 * プログラムの名前を変更したい場合は、`project/Build.scala`内の`packMain`設定を変更してください。
 
+## IntelliJ IDEAで開発する
+
+Scalaのプログラムの開発環境(IDE)としては、[IntelliJ IDEA](http://www.jetbrains.com/idea/)にScala pluginをインストールして使うのがお薦めです。
+
+	$ bin/sbt gen-idea
+	
+とすると、IntelliJ用のプロジェクトファイルが作成されます。`File`->`Open`でmyprojectフォルダを選択するとIntelliJで開発できるようになります。
+
+* 参考 [IntelliJ （Scala開発に使えるIDE） のセットアップ]({{BASE_PATH}}/recipes/2012/06/27/scala-quick-start/)
+
 ## もっと学びたい人は
 
 * [Scalaの文法]({{BASE_PATH}}/recipes/2012/06/28/grammar/)
 * [Scalaのコレクションを使う]({{BASE_PATH}}/recipes/2012/06/28/using-scala-collections/)
-* [IntelliJ （Scala開発に使えるIDE） のセットアップ]({{BASE_PATH}}/recipes/2012/06/27/scala-quick-start/)
 * [Scala Cookbook]({{BASE_PATH}})には、Scalaの開発でつまづきやすい点についてのヒントがあります。
 * [Scalaを学ぶ]({{BASE_PATH}}/recipes/2012/06/28/scala-references/) - Scalaを学ぶのにおすすめの資料をまとめてあります。
 
