@@ -164,9 +164,9 @@ sbtの`libraryDependencies`に、
 	println(ot) // Person
 	// パターンマッチで型による場合分けが可能
     val params = ot match { 
-	  case s:StandardType(cl) => s.constructorParams.mkString(", ")
-      case p:Primitive.Int => "int type"
-	  case m:MapType(cl, keyType, valueType) => s"Map[$keyType, $valueType]"
+	  case s @ StandardType(cl) => s.constructorParams.mkString(", ")
+      case Primitive.Int => "int type"
+	  case m @ MapType(cl, keyType, valueType) => s"Map[$keyType, $valueType]"
 	  case _ => "no params"
 	}
 	println(params) // id:Int, name:String, age:Option[Int]
