@@ -31,19 +31,26 @@ Scala2.10以前では、以下のように型情報を取得できます。
 
 Scala2.10ではTypeTagが導入されsignatureへのアクセスが比較的容易になりました。
 
-reflectの機能はScalaの本体とは別になっているので、sbtのlibraryDependenciesに以下の設定を追加します。
+reflectの機能はScalaの本体とは別になっているので、sbtの`libraryDependencies`に以下の設定を追加します。
 
 	"org.scala-lang" % "scala-reflect" % "2.10.0"
 
 ### 型情報を取得するコード例
 
+`Person(id:Int, name:String, age:Option[Int])`クラスを定義して、パラメータの型情報を取り出します。
+
+	def getType[A : TypeTag](obj:A) : Type = typeOf[A]
+
+のように書くと、コンパイラが`obj:A`の型情報(TypeTag)を生成し、`typeOf[A]`でコード中に型情報を取り出せるようになります。
+
+#### コード
 	// この2行でScala2.10のreflectionの機能が使えるようになる
 	import scala.reflect.runtime.{universe => ru}
 	import ru._
 
 	object ExtractTypeInfo extends Logger {
 
-		// TypeTagを取得。取得できない場合はコンパイルエラーになる
+		// 任意のオブジェクトからTypeTagを取得。取得できない場合はコンパイルエラーになる
 		def getType[A : TypeTag](obj:A) : Type = typeOf[A]
 
         // TypeからClass[_]情報を取得するためのミラー
@@ -53,11 +60,12 @@ reflectの機能はScalaの本体とは別になっているので、sbtのlibra
 		def resolveType[T](tpe:T) : String = tpe match {
 		　// TypeRefから型情報を抜き出す
           case tr @ TypeRef(prefix, symbol, typeArgs) => 
+			// Typeに対応するClassを取得
             val cl = mirror.runtimeClass(tr)
             var className = 
               if(typeArgs.isEmpty) 
 	            cl.getSimpleName
-	          else // 型パラメータを持っている場合
+	          else // 型パラメータを持っている場合、各パラメータの型を解決
                 s"${cl.getName}[${typeArgs.map(resolveType(_)).mkString(", ")}]"
     
            // コンストラクタで定義されているパラメータを取得
