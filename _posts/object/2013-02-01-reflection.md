@@ -90,11 +90,11 @@ reflectの機能はScalaの本体とは別になっているので、sbtのlibra
 
 	Person(id:int, name:String, age:scala.Option[int])
 
-上記のコードでは、`Option[T]`の型パラメータまで調べることができており、ScalaのInt型などは、実際にはJavaのprimitive型のintになっていることがわかる。
+上記のコードでは、`Option[T]`の型パラメータまで調べることができ、ScalaのInt型などは実際にはJavaのprimitive型のintになっていることがわかります。
 
 ## 型の比較
 
-`typeOf[A]`で取得した`Type`は、`=:=`を使って以下のように比較することができる。
+`typeOf[A]`で取得した`Type`は、`=:=`を使って以下のように比較できます。
 
 	val tpe = typeOf[Int]
 	
