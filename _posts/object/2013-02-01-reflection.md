@@ -6,7 +6,7 @@ tags: [object, Scala 2.10]
 ---
 {% include JB/setup %}
 
-[Reflection](http://docs.scala-lang.org/overviews/reflection/overview.html)を使うと、型情報を取得することができます。
+Scalaでは[Reflection](http://docs.scala-lang.org/overviews/reflection/overview.html)を使うとより詳細な型情報を取得することができます。
 
 ## クラス情報を取得 (Scala2.10以前)
 
