@@ -139,7 +139,7 @@ reflectの機能はScalaの本体とは別になっているので、sbtの`libr
       }
     } 
 	else Seq.empty
-	println(params.mkString(", ")) // 	Person(id:int, name:String, age:scala.Option[int])
+	println(params.mkString(", ")) // 	id:int, name:String, age:scala.Option[int]
 
 
 ## xerial-lens：型情報を取得するライブラリ
