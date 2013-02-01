@@ -2,20 +2,19 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans)
 
 body {
- font:14px 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+ font:14px; 
  color:#000; 
  font-weight:400;
 }
 
 p, a, li {
- font:14px 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font: 14px;
 }
 
 h1 { font-size: 22px; }
 h2 { 
     font-size: 20px; 
     border-bottom: 2px solid #66AACC;
-/*    padding-left: 10px;*/
 }
 h3 { 
     font-size: 18px; 
@@ -25,7 +24,7 @@ h4 { font-size: 16px; }
 h5 { font-size: 14px; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family:'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif; 
   color:#222;
   margin:0px 0 5px 0px;
   padding-top: 35px;
