@@ -118,9 +118,33 @@ reflectの機能はScalaの本体とは別になっているので、sbtの`libr
 	  case t if t =:= typeOf[String] =>
     }
 
+## Class[A]からsignatureを取得
+
+コンパイル時に型情報が得られない場合（例えばクラス名だけからオブジェクトを動的に作成するなど）、Class[A]の情報からmirrorを経由してsignatureを取り出すこともできます。
+
+### コード例
+	
+	val cl = classOf[Person]
+	val mirror = ru.runtimeMirror(Thread.currentThread.getContextClassLoader)
+	// クラス名からClassSymbol (Type)情報を取り出す
+    val classSymbol : ru.ClassSymbol = mirror.staticClass(cl.getCanonicalName)
+	// コンストラクタを調べる
+    val cc = classSymbol.typeSignature.declaration(ru.nme.CONSTRUCTOR)
+    val params = if(cc.isMethod) {
+      val fstParen = cc.asMethod.paramss.headOption.getOrElse(Seq.empty)
+      for(p <- fstParen) yield {
+        val name = p.name.decoded
+        val tpe = resolveType(p.typeSignature) // 上記のコードを呼び出す
+		s"$name:$tpe"
+      }
+    } 
+	else Seq.empty
+	println(params.mkString(", ")) // 	Person(id:int, name:String, age:scala.Option[int])
+
+
 ## xerial-lens：型情報を取得するライブラリ
 
-Scala2.10のreflectionの機能は強力ですが、classOf[Person]の情報からTypeTagを取得できないなど不便なところがあります。これを解決するために`xerial-lens`というライブラリを作成しました。
+Scala2.10のreflectionの機能は強力ですが、上記のように再帰的な処理が必要となるなどやや不便なところがあります。これを解決するために`xerial-lens`というライブラリを作成しました。
 
 sbtの`libraryDependencies`に、
 
