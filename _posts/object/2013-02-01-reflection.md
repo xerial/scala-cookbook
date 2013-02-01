@@ -156,12 +156,15 @@ sbtの`libraryDependencies`に、
 
 ### 使用例
 
-	import xerial.lens.{ObjectType,StandardType}
+	import xerial.lens.{ObjectType,StandardType,Primitive, MapType}
 
 	val ot = ObjectType(classOf[Person])
 	println(ot) // Person
+	// パターンマッチで型による場合分けが可能
     val params = ot match { 
-	  case s:StandardType[_] => s.constructorParams.mkString(", ")
+	  case s:StandardType(cl) => s.constructorParams.mkString(", ")
+      case p:Primitive.Int => "int type"
+	  case m:MapType(cl, keyType, valueType) => s"Map[$keyType, $valueType]"
 	  case _ => "no params"
 	}
 	println(params) // id:Int, name:String, age:Option[Int]
