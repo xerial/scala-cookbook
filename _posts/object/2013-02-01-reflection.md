@@ -120,11 +120,11 @@ reflectの機能はScalaの本体とは別になっているので、sbtの`libr
 
 ## Class[A]からsignatureを取得
 
-コンパイル時に型情報が得られない場合（例えばクラス名だけからオブジェクトを動的に作成するなど）、Class[A]の情報からmirrorを経由してsignatureを取り出すこともできます。
+コンパイル時にTypeTagが得られない場合（例えばクラス名だけからオブジェクトを動的に作成する場合など）、Class[A]の情報からmirrorを経由してsignatureを取り出すこともできます。
 
 ### コード例
 	
-	val cl = classOf[Person]
+	val cl = classOf[Person] 
 	val mirror = ru.runtimeMirror(Thread.currentThread.getContextClassLoader)
 	// クラス名からClassSymbol (Type)情報を取り出す
     val classSymbol : ru.ClassSymbol = mirror.staticClass(cl.getCanonicalName)
