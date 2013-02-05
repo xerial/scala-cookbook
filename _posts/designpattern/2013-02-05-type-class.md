@@ -89,6 +89,8 @@ IntervallHolderを型クラスを使って書き直します。
 	val rangeHolder = new IntervalHolder[SelectedRange]
 	rangeHolder += SeletedRange("user input", 140, 180)
 
+IntervalHolderの実装を、２種類のデータ型に対して再利用することができました。今後区間を表すデータ型の種類が増えたときも、型クラスの実装を追加するだけでIntervalHolderを使えるようになります。
+
 implicit parameterに代入される型クラスは、コンパニオンオブジェクト内に定義されているか（IntervalHolder, Interval, SelectedRangeのコンパニオンオブジェクトなどが検索対象に入る）、import文などでスコープに読み込んであれば、Aの型に合わせて対応するIntervalTypeの実装をコンパイラが見つけてきてくれます。
 
 ## 型クラスの応用例
