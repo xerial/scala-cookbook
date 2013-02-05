@@ -27,8 +27,8 @@ Aにはstartというパラメータは定義されていないので、Aに制�
 IntervalHolderを任意のAではなく、区間を表すIntervalData traitを継承した型のみを受け付けるようにしてみます。
 
 	trait IntervalData {
-		val start: Int
-		val end: Int
+		def start: Int
+		def end: Int
 	}
 
     class IntervalHolder[A <: IntervalData] {
