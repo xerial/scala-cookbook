@@ -47,7 +47,7 @@ IntervalHolderを任意のAではなく、区間を表すIntervalData traitを�
 
 ## 型クラスを使って型を合わせる
 
-ここで登場するのが型クラスです。型クラスは任意のオブジェクト`A`から必要なデータ(ここではstartとend)を取り出せるように表現します。
+ここで登場するのが型クラスです。型クラスは任意のオブジェクト`A`から必要なデータ(ここではstartとend)を取り出せるように表現します。区間の性質を表す型クラス IntervalTypeを定義します。
 
 	trait IntervalType[A] {
 		def start(a:A) : Int
