@@ -20,11 +20,11 @@ tags: [DesignPattern]
 	   }
     }
 
-Aにはstartというパラメータは定義されていないので制約を加える必要があります。
+Aにはstartというパラメータは定義されていないので、Aに制約を加える必要があります。
 
 ## 型クラスを使わない場合（traitを使用）
 
-IntervalHolderを任意のAではなく、IntervalData traitを継承したもののみを受け付けるようにしてみます。
+IntervalHolderを任意のAではなく、区間を表すIntervalData traitを継承した型のみを受け付けるようにしてみます。
 
 	trait IntervalData {
 		val start: Int
