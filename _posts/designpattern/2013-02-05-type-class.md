@@ -63,7 +63,7 @@ IntervallHolderを型クラスを使って書き直します。
 	   }
     }
 
-次に、implicit parameter `iv`をコンパイラに自動的に見つけさせるため、Interval, SelectedRangeのそれぞれについて、型クラスIntervalTypeの実装をIntervalHolderのobject内に作成します（コンパイラが見つけられるスコープ中にあれば他の場所に定義しても構いません）
+次に、implicit parameter `iv`をコンパイラに自動的に見つけさせるため、Interval, SelectedRangeのそれぞれについて、型クラスIntervalTypeの実装をIntervalHolderのコンパニオンオブジェクト内に作成します（コンパイラが見つけられるスコープ中にあれば他の場所に定義しても構いません）
 
 	object IntervalHolder {
 		// Intervalは、IntervalTypeとして扱えるという意味
