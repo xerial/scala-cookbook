@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }}{% if page.description %} - {{ page.description }} {% endif %} | Scala Cookbook </title>
+    <title>{{ page.title }}{% if page.url != "/index.html" %} {% if page.description and page.description.size > 0 %} - {{ page.description }}{% endif %} | Scala Cookbook {% endif %}</title>
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
