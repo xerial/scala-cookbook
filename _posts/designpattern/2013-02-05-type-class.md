@@ -3,7 +3,7 @@ layout: post
 title: "Type Class"
 description: "アルゴリズムとデータの鎹（かすがい）"
 category: recipes
-tags: [DesignPattern]
+tags: [design pattern]
 ---
 {% include JB/setup %}
 

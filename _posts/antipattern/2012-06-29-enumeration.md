@@ -3,7 +3,7 @@ layout: post
 title: "ScalaのEnumerationは使うな"
 description: "Scalaで列挙型を定義するには"
 category: recipes
-tags: [AntiPattern]
+tags: [anti pattern]
 ---
 {% include JB/setup %}
 
