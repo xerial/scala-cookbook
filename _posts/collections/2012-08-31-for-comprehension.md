@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "for-comprehensionを理解する"
-description: "map, flatMap"
+title: "for-comprehensionの展開"
+description: "map, flatMapのsyntax sugar"
 category: recipes
 tags: [collections]
 ---
 {% include JB/setup %}
-### for-comprehensionの定義
+## for-comprehensionの定義
 
 Scalaのfor文(for-comprehension: for文による網羅) は、C言語のようにループを回しているわけではなく、map, flatMapなどの関数を呼び出すsyntax sugarとなっています。以下にScalaのfor文の置き換えの定義を示します。
 
-#### for内のパラメータが１つの場合
+### for内のパラメータが１つの場合
 
     for { p0 <- e0 } yield e 　
 
@@ -19,7 +19,7 @@ Scalaのfor文(for-comprehension: for文による網羅) は、C言語のよう�
     e0 map { p0 => e }
 
 
-#### 複数パラメータがある場合
+### 複数パラメータがある場合
 
     for { 
      p0 <- e0
@@ -38,3 +38,12 @@ Scalaのfor文(for-comprehension: for文による網羅) は、C言語のよう�
 	   } yield e
 	 }
 
+例えば、
+	
+	for(p0 <- e0; p1 <- e1; p2 <- e2) yield (p0, p1, p2)
+
+は、
+
+	e0.flatMap(p0 => e1.flatMap(p1 => e2.map(p2 => (p0, p1, p2))))
+
+と同じになります。
