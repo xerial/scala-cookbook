@@ -8,23 +8,23 @@ disquss: true
 
 このページのソース <https://github.com/xerial/scala-cookbook/blob/gh-pages/todo.md>
 
+* [pull request](contribute.html)で追加をお願いします。
+
 ## Scalaのデザインパターン（イディオム）
  * Option monadなどは記述済み
- * (他にはどんなパターンが？）
  * 関数型パラダイム (http://en.wikipedia.org/wiki/Functional_programming)
   * 純粋関数
   * 再帰
   * 非正格評価（「遅延評価」言うな？）
   * 代数的データ型 (algebraic data types)
-  * （モで始まるアレ）
-  * 他にもいろいろありそう
+  * Monoid, Monad
  * 型クラス (type class)
  * 高カインド型を扱うときの諸々
   * { type l[A] = SomeType[T, A] }#l
   * http://eed3si9n.com/ja/essence-of-iterator-pattern
  * Cake Pattern
  * Loan Pattern
- * DynamicVariable を使うやつ
+ * DynamicVariable 
  * Phantom Type
  * Magnet Pattern
  * （ミックスインや型方面のパターンがごっそり抜けてそう。補完求む）
@@ -33,7 +33,6 @@ disquss: true
  * Future
  * akka
  * parallel collection
- * などなど
  * 型推論
  * 糖衣構文（演算子と中置記法、apply）
  * タプル
