@@ -26,7 +26,7 @@ Ruby Gemsでjekyll等をインストール。
 
 Scala Cookbookの[GitHubページ](https://github.com/xerial/scala-cookbook)に行き、Forkボタンを押す。
 
-	$ git checkout (フォークしたリポジトリ) -b gh-pages
+	$ git clone (フォークしたリポジトリ) -b gh-pages
 	$ cd scala-cookbook
 
 ## ページの編集
