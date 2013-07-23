@@ -9,6 +9,9 @@ tags: [introduction, setup]
 
 これはScalaを使った開発環境を素早く整え、実際の開発の雰囲気を感じてもらうための文章です。
 
+## Update
+ * 2013-07-23: Scala 2.10.2に対応しました
+
 ## ここでできるようになること
 
 * Scalaプロジェクトの作成
@@ -32,9 +35,9 @@ tags: [introduction, setup]
 
 Scalaプロジェクトの必要最低限のひな形をGitHub上に[scala-min](https://github.com/xerial/scala-min)として作成してあります。以下のようにダウンロードしながら展開します。
 
-   	$ mkdir myproject
+  	$ mkdir myproject
     $ cd myproject
-    $ curl -L https://github.com/xerial/scala-min/archive/0.2.tar.gz | tar xvz --strip-components=1
+    $ curl -L https://github.com/xerial/scala-min/archive/0.3.tar.gz | tar xvz --strip-components=1
 
 **備考**: [GitHub](http://github.com)はオープンソースでのコード開発を支援するサービスです。Scala自身の開発もここで行われています。
 
@@ -42,9 +45,13 @@ Scalaプロジェクトの必要最低限のひな形をGitHub上に[scala-min](
 
 Scalaのプログラムは、[sbt(Simple Build Tool)](http://www.scala-sbt.org)を使って開発するのが標準になっています。上でダウンロードしたプロジェクト内で、
 
-	$ bin/sbt test
+	$ ./sbt test
 
 とすると、まずScala関連のライブラリのダウンロードが始まります。最初の1回は時間がかかりますが、2回目以降は`$HOME/.ivy2` 以下にダウンロードされたライブラリを使用するので動作が速くなります。
+
+もしメモリの少ないマシンを利用してエラーが出る場合は、以下のように`-mem`オプションでメモリ使用量を制限できます。
+
+    $ ./sbt -mem 512 test  # 512 MBのメモリを使用する
 
 ダウンロードが終了すると、Scalaコードのコンパイルが始まり、テストコードが実行されます。
 
@@ -53,7 +60,7 @@ Scalaのプログラムは、[sbt(Simple Build Tool)](http://www.scala-sbt.org)�
 
 ## フォルダ構成
 
-	bin/sbt            # sbtの実行スクリプト
+	./sbt              # sbtの実行スクリプト
 	src/main/scala     # ソースコード用のフォルダ
 	src/test/scala     # テストコード用のフォルダ
 	project            # プロジェクトの設定ファイル（プロジェクト名、ライブラリ、プラグイン等の設定）
@@ -103,7 +110,7 @@ Scalaプログラムの入口は`main`関数で、以下のように定義され
 
 以下のようにテストコードを実行します。
 
-	$ bin/sbt "~test"
+	$ ./sbt "~test"
 
 このコマンドはテストコードが実行された後も終了せず、ソースコードの変更があるたびに、コンパイル、テストの実行を行ってくれます。Scalaでの開発時間の短縮に重宝します。
 
@@ -119,7 +126,7 @@ tagを付けることで特定のテストのみを繰り返し実行できる�
 
 **実行例**
 
-	$ bin/sbt "~test-only *HelloTest -- -n test1" -Dloglevel=debug
+	$ ./sbt "~test-only *HelloTest -- -n test1" -Dloglevel=debug
     Using C:\Users\leo\.sbt\0.12.0 as sbt dir, -sbt-dir to override.
     [info] Loading global plugins from C:\Users\leo\.sbt\0.12.0\plugins
     [info] Loading project definition from C:\Users\leo\work\tmp\myproject\project
@@ -137,7 +144,7 @@ tagを付けることで特定のテストのみを繰り返し実行できる�
 
 タグ指定せずに以下の用に入力すると、HelloTestクラスの中にあるすべてのテストが繰り返し実行されます。wildcard(`*`)が使えます。
 
-	bin/sbt "~test-only *HelloTest"
+	./sbt "~test-only *HelloTest"
 
 
 ## ログを表示する
@@ -148,7 +155,7 @@ tagを付けることで特定のテストのみを繰り返し実行できる�
 
     "display log messages" in {
       // To see the log messages higher than the debug level,
-      // launch test with`bin/sbt "~test-only *HelloTest" -Dloglevel=debug`
+      // launch test with`./sbt "~test-only *HelloTest" -Dloglevel=debug`
       trace("trace log")
       debug("debug log")
       info("info log")
@@ -165,7 +172,7 @@ tagを付けることで特定のテストのみを繰り返し実行できる�
 
 `printf`などによる表示では、ログを出力するコードを本番用コードで取り除く必要があって大変ですが、`trace` < `debug` < `info` < `warn` < `error` < `fatal` の順にログレベルを分けることで、例えば以下のようにログレベルを設定し、`debug`以上のログのみを表示することができます。
 
-	$ bin/sbt "~test" -Dloglevel=debug
+	$ ./sbt "~test" -Dloglevel=debug
 
 デフォルトでは`info`以上のログが表示される設定になっています。
 
@@ -222,7 +229,7 @@ Scalaではスレッドを使った処理の並列化が容易なので、single
 
 十分にコードをテストできたら本番環境で実行するためのプログラムパッケージを作成します。
 
-	$ bin/sbt pack
+	$ ./sbt pack
 
 このコマンド一つで`target/pack`フォルダ内にそのまま配布できる形のパッケージができあがります。
 
@@ -236,7 +243,7 @@ Scalaではスレッドを使った処理の並列化が容易なので、single
 
 ## Scalaで作ったコマンドをインストールする
 
-	$ bin/sbt pack
+	$ ./sbt pack
 	$ cd target/pack; make install
 
 `$HOME/local/bin` 以下helloコマンドがインストールされます。
@@ -251,7 +258,7 @@ Scalaではスレッドを使った処理の並列化が容易なので、single
 
 Scalaのプログラムの開発環境(IDE)としては、[IntelliJ IDEA](http://www.jetbrains.com/idea/)にScala pluginをインストールして使うのがお薦めです。IntelliJとScala pluginをインストール後、
 
-	$ bin/sbt gen-idea
+	$ ./sbt gen-idea
 	
 とすると、IntelliJ用のプロジェクトファイルが作成されます。プロジェクトを開くには`File`->`Open`で、今回作成したmyprojectフォルダを選択します。
 
