@@ -178,7 +178,7 @@ tagを付けることで特定のテストのみを繰り返し実行できる�
 
 
 * ログの表示には、[xerial-core](https://github.com/xerial/xerial) ライブラリにある`Logger` traitが使われています。
-* 文字列のformatに関しては[String interpolation]({{BASE_PATH}}/recipes/2013/01/30/string-interpolation/)を参考に。
+* 文字列のformatに関しては[String interpolation]({{BASE_PATH}}/recipes/2013/01/30/string-interpolation)を参考に。
 
 ## コードの実行時間を計測する
 
@@ -262,12 +262,12 @@ Scalaのプログラムの開発環境(IDE)としては、[IntelliJ IDEA](http:/
 	
 とすると、IntelliJ用のプロジェクトファイルが作成されます。プロジェクトを開くには`File`->`Open`で、今回作成したmyprojectフォルダを選択します。
 
-* 参考 [IntelliJ （Scala開発に使えるIDE） のセットアップ]({{BASE_PATH}}/recipes/2012/06/27/scala-quick-start/)
+* 参考 [IntelliJ （Scala開発に使えるIDE） のセットアップ]({{BASE_PATH}}/recipes/2012/06/27/scala-quick-start)
 
 ## もっと学びたい人は
 
-* [Scalaの文法]({{BASE_PATH}}/recipes/2012/06/28/grammar/)
-* [Scalaのコレクションを使う]({{BASE_PATH}}/recipes/2012/06/28/using-scala-collections/)
+* [Scalaの文法]({{BASE_PATH}}/recipes/2012/06/28/grammar)
+* [Scalaのコレクションを使う]({{BASE_PATH}}/recipes/2012/06/28/using-scala-collections)
 * [Scala Cookbook]({{BASE_PATH}})には、Scalaの開発でつまづきやすい点についてのヒントがあります。
-* [Scalaを学ぶ]({{BASE_PATH}}/recipes/2012/06/28/scala-references/) - Scalaを学ぶのにおすすめの資料をまとめてあります。
+* [Scalaを学ぶ]({{BASE_PATH}}/recipes/2012/06/28/scala-references) - Scalaを学ぶのにおすすめの資料をまとめてあります。
 

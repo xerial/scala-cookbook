@@ -31,7 +31,7 @@ Scalaでのテストコード作成には
 
 ## テストコードの実行
 
-[Scalaのプロジェクトの作成]({{BASE_PATH}}/recipes/2012/06/28/create-a-scala-project/)の例では、ScalaTestをすぐ使えるようになっています。```libraryDepenedencies```に、
+[Scalaのプロジェクトの作成]({{BASE_PATH}}/recipes/2012/06/28/create-a-scala-project)の例では、ScalaTestをすぐ使えるようになっています。```libraryDepenedencies```に、
 	
     "org.scalatest" %% "scalatest" %% "2.0.M1" % "test"
 

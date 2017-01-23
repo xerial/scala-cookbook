@@ -9,7 +9,7 @@ tags: [string]
 
 文字列を整形して出力したい。
 
-**Scala2.10より、[String interpolation]({{BASE_PATH}}/recipes/2013/01/30/string-interpolation/)が使えるようになりtype safeな文字列の整形ができるようになりました。こちらがおすすめ　(2013年1月)**
+**Scala2.10より、[String interpolation]({{BASE_PATH}}/recipes/2013/01/30/string-interpolation)が使えるようになりtype safeな文字列の整形ができるようになりました。こちらがおすすめ　(2013年1月)**
 
 
 ## 
