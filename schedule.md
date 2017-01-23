@@ -14,14 +14,14 @@ disquss: false
 
 ## 実施記録
 
-* [**Lesson 0**: Scala Quick Start]({{ BASE_PATH }}/recipes/2012/06/27/scala-quick-start/) (2012年6月12日)
+* [**Lesson 0**: Scala Quick Start]({{ BASE_PATH }}/recipes/2012/06/27/scala-quick-start) (2012年6月12日)
    * サンプルコードをgitで取得
    * Scalaコードの実行
    * IntelliJのインストール、コードの実行
    * ScalaTestによるテストコードの作成とテストの実行  
    * テストを実行しながら開発(sbt)
    
-* [**Lesson 1**: Scala Collections]({{BASE_PATH}}/recipes/2012/06/28/using-scala-collections/) (2012年6月21日)
+* [**Lesson 1**: Scala Collections]({{BASE_PATH}}/recipes/2012/06/28/using-scala-collections) (2012年6月21日)
    * Array, Map, Set,  Tuple
    * Option
    * 要素を連結した文字列の作成(mkString)
@@ -32,13 +32,13 @@ disquss: false
    * 要素を並び替える (sort)
    * マルチコアでコレクションを並列処理する (parallel collection, par)
 * **Lesson 2** (2012年6月27日)
-   * [Scalaでプロジェクトを作成する]({{BASE_PATH}}/recipes/2012/06/28/create-a-scala-project/)
-   * [テストコードの作成]({{BASE_PATH}}/recipes/2012/06/28/scalatest/)
-   * [ループあれこれ]({{BASE_PATH}}/recipes/2012/06/27/loops/)
+   * [Scalaでプロジェクトを作成する]({{BASE_PATH}}/recipes/2012/06/28/create-a-scala-project)
+   * [テストコードの作成]({{BASE_PATH}}/recipes/2012/06/28/scalatest)
+   * [ループあれこれ]({{BASE_PATH}}/recipes/2012/06/27/loops)
 
 * **Lesson 3** アルゴリズムとデータ構造 (2012年7月4日)
-   * [Union Findで同値類をまとめる]({{BASE_PATH}}/recipes/2012/07/03/union-find/)
-   * [区間の交差判定]({{BASE_PATH}}/recipes/2012/07/03/interval-sweep/)
+   * [Union Findで同値類をまとめる]({{BASE_PATH}}/recipes/2012/07/03/union-find)
+   * [区間の交差判定]({{BASE_PATH}}/recipes/2012/07/03/interval-sweep)
      * sweep, priority search tree
 	 * priority queue
 
