@@ -7,7 +7,7 @@ tags: [setup]
 ---
 {% include JB/setup %}
 
-**ここに書いてあることを手早く実行するには、[15分で始めるScala]({{BASE_PATH}}/recipes/2012/11/29/scala-in-15-minutes/)がおすすめです。(2013年1月)**
+**ここに書いてあることを手早く実行するには、[15分で始めるScala]({{BASE_PATH}}/recipes/2012/11/29/scala-in-15-minutes)がおすすめです。(2013年1月)**
 
 
 ## sbt
