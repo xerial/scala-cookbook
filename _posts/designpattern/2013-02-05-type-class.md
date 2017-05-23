@@ -14,6 +14,7 @@ tags: [design pattern]
 例えば、区間データ(start, endのフィールドを持つ)を保持するための`IntervalHolder`を考えてみます。区間を保持するという意味では汎用的に書けそうなので、区間を`A`と置いてGenericなクラスとして表現します。
 
     class IntervalHolder[A] {
+      // 区間をstartをindexとして保持したい
       private var holder = Map[Int, A]()
       def +=(a:A) {
         holder += a.start -> e  // コンパイルエラー。Aはstartを持つ型ではない
@@ -33,8 +34,8 @@ IntervalHolderを任意のAではなく、区間を表すIntervalData traitを�
 
     class IntervalHolder[A <: IntervalData] {
       private var holder = Map[Int, A]()
-      def +=(e:A) {
-　　    holder += e.start -> e  // コンパイルできるようになった
+      def +=(a:A) {
+        holder += a.start -> e  // コンパイルできるようになった
       }
     }
 
