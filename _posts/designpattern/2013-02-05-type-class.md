@@ -11,21 +11,21 @@ tags: [design pattern]
 
 ## 例題
 
-例えば、区間データ(start, endのフィールドを持つ)を保持するための`IntervalHolder`を考えてみます。区間を保持するという意味では汎用的に書けそうなので、区間を`A`と置いてGenericなクラスとして表現します。
+例えば、区間データ(start, endのフィールドを持つ)を保持するための`IntervalHolder`を考えてみます。区間を保持するという意味では汎用的に書けそうなので、区間を`A`と置いてGenericなクラスとして`IntervalHolder`を表現してみます。
 
     class IntervalHolder[A] {
       // 区間をstartをindexとして保持したい
       private var holder = Map[Int, A]()
       def +=(a:A) {
-        holder += a.start -> e  // コンパイルエラー。Aはstartを持つ型ではない
+        holder += a.start -> a  // コンパイルエラー。Aはstartを持つ型ではない
       }
     }
 
-Aにはstartというパラメータは定義されていないので、Aに制約を加える必要があります。
+Aにはstartというパラメータは定義されていないので、Aにinterfaceなどを加える必要があります。
 
 ## 型クラスを使わない場合（traitを使用）
 
-IntervalHolderを任意のAではなく、区間を表すIntervalData traitを継承した型のみを受け付けるようにしてみます。
+IntervalHolderを任意のAではなく、区間を表すIntervalData traitを継承した型のみを受け付けるように変更します。
 
     trait IntervalData {
       def start: Int
@@ -35,11 +35,11 @@ IntervalHolderを任意のAではなく、区間を表すIntervalData traitを�
     class IntervalHolder[A <: IntervalData] {
       private var holder = Map[Int, A]()
       def +=(a:A) {
-        holder += a.start -> e  // コンパイルできるようになった
+        holder += a.start -> a  // コンパイルできるようになった
       }
     }
 
-しかし実際には、区間データの表現にも以下のように様々な種類が考えられます。
+しかし実際には、区間データの表現には以下のように様々な種類が考えられます。
 
     case class Interval(start:Int, end:Int)
     case class SelectedRange(name:String, left:Int, right:Int)
@@ -55,12 +55,12 @@ IntervalHolderを任意のAではなく、区間を表すIntervalData traitを�
       def end(a:A) : Int
     }
 
-IntervallHolderを型クラスを使って書き直します。
+IntervallHolderを型クラスである`IntervalType`を使って書き直します。
 	
     class IntervalHolder[A](implicit iv:IntervalType[A]) {
       private var holder = Map[Int, A]()
       def +=(e:A) {
-        holder += iv.start(e) -> e  // 型クラス経由でパラメータにアクセスする
+        holder += iv.start(e) -> a  // 型クラス経由でパラメータにアクセスする
       }
     }
 
