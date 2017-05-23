@@ -11,13 +11,13 @@ tags: [design pattern]
 
 ## 例題
 
-例えば、区間データ`(start, end)`を保持するための`IntervalHolder`を考えてみます。区間を保持するという意味では汎用的に書けそうなので、区間を`A`としてGenericなクラスとして表現します。
+例えば、区間データ(start, endのフィールドを持つ)を保持するための`IntervalHolder`を考えてみます。区間を保持するという意味では汎用的に書けそうなので、区間を`A`と置いてGenericなクラスとして表現します。
 
     class IntervalHolder[A] {
-       private var holder = Map[Int, A]()
-       def +=(e:A) {
-		   holder += e.start -> e  // コンパイルエラー。Aはstartを持つ型ではない
-	   }
+      private var holder = Map[Int, A]()
+      def +=(a:A) {
+        holder += a.start -> e  // コンパイルエラー。Aはstartを持つ型ではない
+      }
     }
 
 Aにはstartというパラメータは定義されていないので、Aに制約を加える必要があります。
@@ -26,16 +26,16 @@ Aにはstartというパラメータは定義されていないので、Aに制�
 
 IntervalHolderを任意のAではなく、区間を表すIntervalData traitを継承した型のみを受け付けるようにしてみます。
 
-	trait IntervalData {
-		def start: Int
-		def end: Int
-	}
+    trait IntervalData {
+      def start: Int
+      def end: Int
+    }
 
     class IntervalHolder[A <: IntervalData] {
-       private var holder = Map[Int, A]()
-       def +=(e:A) {
-		   holder += e.start -> e  // コンパイルできるようになった
-	   }
+      private var holder = Map[Int, A]()
+      def +=(e:A) {
+　　    holder += e.start -> e  // コンパイルできるようになった
+      }
     }
 
 しかし実際には、区間データの表現にも以下のように様々な種類が考えられます。
@@ -49,47 +49,47 @@ IntervalHolderを任意のAではなく、区間を表すIntervalData traitを�
 
 ここで登場するのが型クラスです。型クラスは任意のオブジェクト`A`から必要なデータ(ここではstartとend)を取り出せるように表現します。区間の性質を表す型クラス IntervalTypeを定義します。
 
-	trait IntervalType[A] {
-		def start(a:A) : Int
-		def end(a:A) : Int
-	}
+    trait IntervalType[A] {
+      def start(a:A) : Int
+      def end(a:A) : Int
+    }
 
 IntervallHolderを型クラスを使って書き直します。
 	
     class IntervalHolder[A](implicit iv:IntervalType[A]) {
-       private var holder = Map[Int, A]()
-       def +=(e:A) {
-		   holder += iv.start(e) -> e  // 型クラス経由でパラメータにアクセスする
-	   }
+      private var holder = Map[Int, A]()
+      def +=(e:A) {
+        holder += iv.start(e) -> e  // 型クラス経由でパラメータにアクセスする
+      }
     }
 
 次に、implicit parameter `iv`をコンパイラに自動的に見つけさせるため、Interval, SelectedRangeのそれぞれについて、型クラスIntervalTypeの実装をIntervalHolderのコンパニオンオブジェクト内に作成します（コンパイラが見つけられるスコープ中にあれば他の場所に定義しても構いません）
 
-	object IntervalHolder {
-		// Intervalは、IntervalTypeとして扱えるという意味
-		object StandardInterval extends IntervalType[Interval] {
-			def start(a:Interval) = a.start
-			def end(a:Interval) = a.end
-		}
-	
-		// SelectedRangeもIntervalTypeとして扱えるという意味
-		object SelectedRangeAsInterval extends IntervalType[SelectedRange] {
-			def start(a:SelctedRange) = a.left
-			def end(a:SelectedRange) = a.right
-		}
-	}
+    object IntervalHolder {
+      // Intervalは、IntervalTypeとして扱えるという意味
+      object StandardInterval extends IntervalType[Interval] {
+        def start(a:Interval) = a.start
+        def end(a:Interval) = a.end
+      }
+
+      // SelectedRangeもIntervalTypeとして扱えるという意味
+      object SelectedRangeAsInterval extends IntervalType[SelectedRange] {
+        def start(a:SelctedRange) = a.left
+        def end(a:SelectedRange) = a.right
+      }
+    }
 	
 型クラスのインスタンスは１つあれば十分なのでobjectとして定義してあります。またimplicit paramterとして自動解決する場合にもobjectとしてあると都合がよいです。
 	
 ### 使用例
 
-	val holder = new IntervalHolder[Interval] 
-	holder += Interval(1, 3)
+    val holder = new IntervalHolder[Interval] 
+    holder += Interval(1, 3)
 	
-	val rangeHolder = new IntervalHolder[SelectedRange]
-	rangeHolder += SeletedRange("user input", 140, 180)
+    val rangeHolder = new IntervalHolder[SelectedRange]
+    rangeHolder += SeletedRange("user input", 140, 180)
 
-IntervalHolderの実装を、２種類のデータ型に対して再利用することができました。今後区間を表すデータ型の種類が増えたときも、型クラスの実装を追加するだけでIntervalHolderを使えるようになります。
+IntervalHolderの実装を２種類のデータ型に対して再利用することができました。今後区間を表すデータ型の種類が増えたときも、型クラスの実装を追加するだけでIntervalHolderを使えるようになります。
 
 implicit parameterに代入される型クラスは、コンパニオンオブジェクト内に定義されているか（IntervalHolder, Interval, SelectedRangeのコンパニオンオブジェクトなどが検索対象に入る）、import文などでスコープに読み込んであれば、Aの型に合わせて対応するIntervalTypeの実装をコンパイラが見つけてきてくれます。
 
